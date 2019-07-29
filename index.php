@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Content manage</title>
+    <link rel="shortcut icon" href="favicon.ico" />
 
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -26,7 +27,7 @@
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
-        <div class="col-md-3 left_col">
+        <div class="col-md-3 left_col menu_fixed">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
               <a href="index.php" class="site_title"><i class="fa fa-home"></i> <span>Content Manage</span></a>
@@ -41,7 +42,7 @@
               <div class="menu_section">
                 <h3>MENU</h3>
                 <ul class="nav side-menu">
-                    <li id="menu1"><a><i class="fa fa-desktop"></i> Media gallery </span></a>
+                    <li id="menu1"><a><i class="fa fa-image"></i> Media gallery </span></a>
                     </li>
                     <li id="menu2"><a><i class="fa fa-edit"></i> Media Upload </span></a>
                     </li>

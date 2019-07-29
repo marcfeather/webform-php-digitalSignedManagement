@@ -1,38 +1,17 @@
 
-$("#menu1").click(function() {
-    $("#panelMenu1").css("display", "block");
-    $("#panelMenu2").css("display", "none");
-});
-
-$("#menu2").click(function() {
-    $("#panelMenu1").css("display", "none");
-    $("#panelMenu2").css("display", "block");
-});
-
-// $("#btnUpload").click(function() {
-//     alert("hi");
-// });
-
 $(document).ready(function(){
-    $("#panelMenu1").css("display", "block");
-    $("#panelMenu2").css("display", "none");
-    list_image();
+    menu1();
 
-    // Dropzone.options.dropzoneFrom = {
-    //     init: function () {
-    //         this.on("complete", function (file) {
-    //             setTimeout(
-    //             function() 
-    //             {
-    //                 //if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
-    //                     var _this = this;
-    //                     _this.removeAllFiles();
-    //                     alert("ok");
-    //                 //}
-    //             }, 3000);
-    //         });
-    //     }
-    // };
+    Dropzone.options.dropzoneFrom = {
+        acceptedFiles:".jpg",
+        init: function () {
+            var refreshButton = document.querySelector('#btnRefresh');
+            refreshButton.addEventListener("click", function(){
+                var _this = this;
+                _this.removeAllFiles();
+            });
+        }
+    };
  
     // Dropzone.options.dropzoneFrom = {
     //  autoProcessQueue: false,
@@ -75,19 +54,42 @@ $(document).ready(function(){
     // }
    
     $(document).on('click', '.remove_image', function(){
-     var name = $(this).attr('id');
-     $.ajax({
-      url:"gallery.php",
-      method:"POST",
-      data:{name:name},
-      success:function(data)
-      {
-       list_image();
-      }
-     })
+        var name = $(this).attr('id');
+        $.ajax({
+            url:"gallery.php",
+            method:"POST",
+            data:{name:name},
+            success:function(data)
+            {
+                list_image();
+            }
+        })
     });
-    
 });
+
+$("#menu1").click(function() {
+    menu1();
+});
+
+$("#menu2").click(function() {
+    menu2();
+});
+
+// $("#btnUpload").click(function() {
+//     alert("hi");
+// });
+
+function menu1(){
+    $("#panelMenu1").css("display", "block");
+    $("#panelMenu2").css("display", "none");
+
+    list_image();
+}
+
+function menu2(){
+    $("#panelMenu1").css("display", "none");
+    $("#panelMenu2").css("display", "block");
+}
 
 function list_image(){
     $.ajax({

@@ -31,6 +31,18 @@ if(!empty($_FILES))
         //     $count++;
         //     rename($folder_name . $file, $folder_name . $count . $fileType);
         // }
+
+        // //$files = array();
+        // $count = 0;
+        // $dir = opendir('content'); // open the cwd..also do an err check.
+        // while(false != ($file = readdir($dir))) {
+        //     if(($file != ".") and ($file != "..") and ($file != "index.php")) {
+        //             //$files[] = $file; // put in array.
+        //             $count++;
+        //             rename($folder_name . $file, $folder_name . $count . $fileType);
+        //     }   
+        // }
+
     }
 }
 

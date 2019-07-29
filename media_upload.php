@@ -19,6 +19,14 @@
             </div>
           </div> -->
 
+          <div class="nav navbar-right panel_toolbox">
+            <div id="btnRefresh">
+              <a class="btn btn-app">
+                  <i class="fa fa-refresh"></i> Refresh
+              </a>
+            </div>
+          </div>
+
           <div class="clearfix"></div>
         </div>
         <div class="x_content">

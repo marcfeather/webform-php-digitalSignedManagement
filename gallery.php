@@ -8,11 +8,22 @@ if(isset($_POST["name"]))
  unlink($filename);
 }
 
-$result = array();
+//$result = array();
 
-$files = scandir('content');
+//$files = scandir('content');
 
 $output = '<div class="row">';
+
+$files = array();
+$dir = opendir('content'); // open the cwd..also do an err check.
+
+while(false != ($file = readdir($dir))) {
+        if(($file != ".") and ($file != "..") and ($file != "index.php")) {
+                $files[] = $file; // put in array.
+        }   
+}
+
+natsort($files); // sort.
 
 if(false !== $files)
 {
@@ -25,17 +36,18 @@ if(false !== $files)
     <div class="thumbnail">
         <div class="image view view-first">
             <img style="width: 100%; display: block;" src="'.$folder_name.$file.'" alt="image" />
-            <div class="mask">
-                <p>'.$file.'</p>
-                <div class="tools tools-bottom">
-                    <a href="#"><i class="fa fa-search-plus"></i></a>
-                    <a href="#"><i class="fa fa-times"></i></a>
-                </div>
-            </div>
         </div>
         <div class="caption">
-            
-            <button type="button" class="btn btn-link remove_image" id="'.$file.'">Remove</button>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6" align="left">
+                    <p>'.$file.'</p>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6" align="right">
+                    <button type="button" class="btn btn-danger btn-xs remove_image" id="'.$file.'">
+                        <i class="fa fa-close"></i> Remove
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
    </div>
