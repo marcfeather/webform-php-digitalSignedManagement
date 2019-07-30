@@ -1,17 +1,136 @@
 
 $(document).ready(function(){
+
     menu1();
+    //clear_temp();
+
+    var uploadProcess = false;
 
     Dropzone.options.dropzoneFrom = {
+        url: "upload.php",
+        parallelUploads: 100,
+        autoProcessQueue: false,
+        //acceptedFiles:".png,.jpg,.gif,.bmp,.jpeg",
         acceptedFiles:".jpg",
+        addRemoveLinks: true,
+        dictRemoveFile: "ลบรูปนี้",
+        dictDefaultMessage: "ลากรูปภาพที่ต้องการอัพโหลดใส่ลงในพื้นที่นี้ หรือคลิกเพื่อเลือกรูปภาพ",
         init: function () {
-            var refreshButton = document.querySelector('#btnRefresh');
-            refreshButton.addEventListener("click", function(){
-                var _this = this;
-                _this.removeAllFiles();
+            myDropzone = this;
+            var uploadButton = document.querySelector('#btnUpload');
+            uploadButton.addEventListener("click", function(){
+                if(myDropzone.getQueuedFiles().length > 0) {
+                    //alert(myDropzone.getQueuedFiles().length.toString());
+                    //alert(myDropzone.getUploadingFiles().length.toString());
+                    //alert(myDropzone.getAcceptedFiles().length.toString());
+                    uploadProcess = true;
+                    myDropzone.processQueue();
+
+                }else {
+                    if (uploadProcess) {
+                        alert("กรุณารอสักครู่..");
+                    }else {
+                        alert("กรุณาเลือกรูปภาพที่จะอัพโหลด !");
+                    }
+                }
+                
+                //if(myDropzone.getQueuedFiles().length == 0 && myDropzone.getUploadingFiles().length == 0) {
+                //if(this.getUploadingFiles().length == 0) {
+                    //alert("hi");
+                    //move_image();
+                    //myDropzone.processQueue();
+                //}
+
+                myDropzone.on("complete", function() {
+                    //myDropzone.options.autoProcessQueue = true; 
+                    
+                    //alert(myDropzone.getQueuedFiles().length.toString());
+                    //alert(myDropzone.getUploadingFiles().length.toString());
+                    //alert(myDropzone.getAcceptedFiles().length.toString());
+
+                    var fileNumber = myDropzone.getAcceptedFiles().length;
+                    var timer = (fileNumber * 1000) / 4;
+
+                    if(myDropzone.getUploadingFiles().length == 0) {
+                        setTimeout(
+                            function() 
+                            {
+                                myDropzone.removeAllFiles(true) ;
+                                uploadProcess = false;
+                                menu1();
+                            }, timer);
+                    }
+                });
             });
         }
     };
+
+    // Dropzone.options.dropzoneFrom = {
+    //     parallelUploads: 1, // Uploads one (1) file at a time, change to whatever you like.
+    //     autoProcessQueue: false,
+    //     init: function () {
+    //         var startUpload = document.getElementById("#btnUpload");
+    //         myDropzone = this;
+    //         startUpload.addEventListener("click", function () {
+    //             alert("hi");
+    //             //myDropzone.processQueue();
+    //         });
+    //         this.on("success", function() {
+    //            myDropzone.options.autoProcessQueue = true; 
+    //         });
+    //     }
+    // };
+
+    // Dropzone.autoDiscover = false;
+    // var myDropzone = new Dropzone("#dropzoneFrom", { 
+    //     url: "upload.php", 
+    //     paramName: "file_upload",
+    //     maxFilesize: 1024, 
+    //     maxFiles: 200,
+    //     autoProcessQueue: false
+    // });
+
+    // function startUpload(){
+    //     for (var i = 0; i < myDropzone.getAcceptedFiles().length; i++) {
+    //         myDropzone.processFile(myDropzone.getAcceptedFiles()[i]);
+    //     }
+    // }
+
+    // myDropzone.on('success', function(file, result) {
+    //     try {
+    //         result = JSON.parse(result)
+    //         if (!result.error) {
+    //             if(myDropzone.getQueuedFiles().length === 0 && myDropzone.getUploadingFiles().length === 0){
+    //                 $("#uploadModal"). modal('hide');
+    //                 myDropzone.removeAllFiles(true) ;
+    //             }
+    //         }
+    //         //TODO - 
+    //     } catch (e) {
+    //         //TODO -
+    //     }
+    // });
+
+    // Dropzone.options.myDropzone = {
+    //     autoProcessQueue: true,
+    //     parallelUploads: 1,
+    //     addRemoveLinks:true,
+    //     init: function () {
+    //         var submitButton = document.querySelector("#btnUpload");
+    //         myDropzone = this; // closure
+    //         submitButton.addEventListener("click", function () {
+    //             if(myDropzone.getQueuedFiles().length === 0)
+    //             {
+    //                 alert("Please drop or select file to upload !!!");
+    //             }
+    //             else{
+    //                myDropzone.processQueue(); // Tell Dropzone to process all queued files.
+    //             } 
+    //         });
+    //     },
+    //     url: "upload.php"
+    // };
+
  
     // Dropzone.options.dropzoneFrom = {
     //  autoProcessQueue: false,
@@ -75,9 +194,9 @@ $("#menu2").click(function() {
     menu2();
 });
 
-// $("#btnUpload").click(function() {
-//     alert("hi");
-// });
+$("#btnAddFile").click(function() {
+    menu2();
+});
 
 function menu1(){
     $("#panelMenu1").css("display", "block");

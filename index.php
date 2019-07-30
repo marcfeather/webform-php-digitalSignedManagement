@@ -8,7 +8,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Content manage</title>
+    <!-- no cache browser-->
+    <meta http-equiv="expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/> 
+    <meta http-equiv="pragma" content="no-cache" />
+
+    <title>CVM - CORETERA</title>
     <link rel="shortcut icon" href="favicon.ico" />
 
     <!-- Bootstrap -->
@@ -30,7 +34,7 @@
         <div class="col-md-3 left_col menu_fixed">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.php" class="site_title"><i class="fa fa-home"></i> <span>Content Manage</span></a>
+              <a href="index.php" class="site_title"><i class="fa fa-home"></i> <span>ระบบจัดการข้อมูล</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -40,11 +44,11 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <h3>MENU</h3>
-                <ul class="nav side-menu">
-                    <li id="menu1"><a><i class="fa fa-image"></i> Media gallery </span></a>
+                <h3>เมนู</h3>
+                <ul class="nav side-menu" style="font-size: 16px;">
+                    <li id="menu1"><a><i class="fa fa-image"></i> รูปภาพ </span></a>
                     </li>
-                    <li id="menu2"><a><i class="fa fa-edit"></i> Media Upload </span></a>
+                    <li id="menu2"><a><i class="fa fa-upload"></i> อัพโหลดรูป </span></a>
                     </li>
                 </ul>
               </div>

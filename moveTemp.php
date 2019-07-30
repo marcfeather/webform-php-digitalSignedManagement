@@ -1,8 +1,14 @@
 <?php
 // Identify directories
-$source = "content/temp/";
+$source = "temp/";
 $destination = "content/";
 $fileType = ".jpg";
+
+//Check if the directory already exists.
+if(!is_dir($destination)){
+    //Directory does not exist, so lets create it.
+    mkdir($destination, 0777, true);
+}
 
 // Get array of all source files
 $files = scandir($source);
@@ -29,21 +35,18 @@ foreach ($files as $file) {
     $countTempFile++;
 }
 
-if ($countTempFile == 0){
-    /* Redirect browser */
-    header('Location: media_upload.php'); 
-    exit();
-
-}else {
+if ($countTempFile > 0){
     // Delete all successfully-copied files
     foreach ($delete as $file) {
         unlink($file);
     }
 
-    /* Redirect browser */
-    header('Location: index.php'); 
-    exit();
+    $output = true;
+
+}else {
+    $output = false;
 }
 
+echo $output;
 
 

@@ -9,29 +9,20 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel">
         <div class="x_title">
-          <h2>Dropzone multiple file uploader</h2>
-
-          <!-- <div class="nav navbar-right panel_toolbox">
-            <div id="btnUpload">
-              <a class="btn btn-app">
-                  <i class="fa fa-upload"></i> Upload
-              </a>
-            </div>
-          </div> -->
+          <h2>อัพโหลดรูป</h2>
 
           <div class="nav navbar-right panel_toolbox">
-            <div id="btnRefresh">
-              <a class="btn btn-app">
-                  <i class="fa fa-refresh"></i> Refresh
-              </a>
-            </div>
+            <button id="btnUpload" type="button" class="btn btn-dark" 
+                style="width:100px; height:40px;">
+                <i class="fa fa-arrow-circle-up"></i>&nbsp;&nbsp;อัพโหลด
+            </button>
           </div>
 
           <div class="clearfix"></div>
         </div>
         <div class="x_content">
-          <p>Drag multiple files to the box below for multi upload or click to select files.</p>
-          <form action="upload.php" class="dropzone" id="dropzoneFrom"></form>
+          <!-- <p>ลากรูปภาพที่ต้องการอัพโหลดใส่ลงในพื้นที่ด้านล่าง หรือคลิกเพื่อเลือกรูปภาพ</p> -->
+          <form class="dropzone" id="dropzoneFrom"></form>
           <br />
           <br />
           <br />
