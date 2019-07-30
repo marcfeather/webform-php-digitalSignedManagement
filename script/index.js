@@ -5,24 +5,24 @@ $(document).ready(function(){
     //clear_temp();
 
     var uploadProcess = false;
-
     Dropzone.options.dropzoneFrom = {
         url: "upload.php",
         parallelUploads: 100,
+        //maxFilesize: 1, // MB
+        maxFiles: 100,
         autoProcessQueue: false,
         //acceptedFiles:".png,.jpg,.gif,.bmp,.jpeg",
         acceptedFiles:".jpg",
         addRemoveLinks: true,
+        //dictFileTooBig: "File is to big ({{filesize}}mb). Max allowed file size is {{maxFilesize}}mb",
+        dictInvalidFileType: "Invalid File Type",
         dictRemoveFile: "ลบรูปนี้",
-        dictDefaultMessage: "ลากรูปภาพที่ต้องการอัพโหลดใส่ลงในพื้นที่นี้ หรือคลิกเพื่อเลือกรูปภาพ",
+        dictDefaultMessage: "ลากรูปภาพที่ต้องการอัพโหลดใส่ลงในพื้นที่นี้ หรือคลิกที่นี่ เพื่อเลือกรูปภาพ",
         init: function () {
             myDropzone = this;
             var uploadButton = document.querySelector('#btnUpload');
             uploadButton.addEventListener("click", function(){
                 if(myDropzone.getQueuedFiles().length > 0) {
-                    //alert(myDropzone.getQueuedFiles().length.toString());
-                    //alert(myDropzone.getUploadingFiles().length.toString());
-                    //alert(myDropzone.getAcceptedFiles().length.toString());
                     uploadProcess = true;
                     myDropzone.processQueue();
 
@@ -33,17 +33,8 @@ $(document).ready(function(){
                         alert("กรุณาเลือกรูปภาพที่จะอัพโหลด !");
                     }
                 }
-                
-                //if(myDropzone.getQueuedFiles().length == 0 && myDropzone.getUploadingFiles().length == 0) {
-                //if(this.getUploadingFiles().length == 0) {
-                    //alert("hi");
-                    //move_image();
-                    //myDropzone.processQueue();
-                //}
 
                 myDropzone.on("complete", function() {
-                    //myDropzone.options.autoProcessQueue = true; 
-                    
                     //alert(myDropzone.getQueuedFiles().length.toString());
                     //alert(myDropzone.getUploadingFiles().length.toString());
                     //alert(myDropzone.getAcceptedFiles().length.toString());
@@ -57,6 +48,10 @@ $(document).ready(function(){
                             {
                                 myDropzone.removeAllFiles(true) ;
                                 uploadProcess = false;
+                                //insertDB();
+
+                                
+
                                 menu1();
                             }, timer);
                     }
@@ -199,6 +194,9 @@ $("#btnAddFile").click(function() {
 });
 
 function menu1(){
+    $("#menu1").addClass("active");
+    $("#menu2").removeClass("active");
+
     $("#panelMenu1").css("display", "block");
     $("#panelMenu2").css("display", "none");
 
@@ -206,6 +204,9 @@ function menu1(){
 }
 
 function menu2(){
+    $("#menu1").removeClass("active");
+    $("#menu2").addClass("active");
+
     $("#panelMenu1").css("display", "none");
     $("#panelMenu2").css("display", "block");
 }
@@ -218,4 +219,14 @@ function list_image(){
         }
     });
 }
-  
+
+// function insertDB(){
+//     $.ajax({
+//         url:"insert.php",
+//         method:"POST",
+//         data:{name:name},
+//         success:function(data){
+            
+//         }
+//     });
+// }

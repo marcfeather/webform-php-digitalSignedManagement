@@ -12,6 +12,8 @@ if(!empty($_FILES))
     }
 
     $target_file = $folder_name . basename($_FILES["file"]["name"]);
+    $filename = pathinfo($target_file, PATHINFO_FILENAME);
+    $ext = pathinfo($target_file, PATHINFO_EXTENSION);
 
     if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
         $status = 1;
@@ -34,8 +36,46 @@ if(!empty($_FILES))
         //             $count++;
         //             rename($folder_name . $file, $folder_name . $count . $fileType);
         //     }   
-        // }
+        // }  
 
+        
+        // include("db_connect.php"); // incude ครั้งเดียวในไฟล์ที่เรียกใช้งาน
+        // connect(); // เชื่อมต่อกับฐานข้อมูล
+        // $data = array(
+        //     "content_order"=>"1",
+        //     "content_update_date"=>time(),
+        // );
+        // // insert ข้อมูลลงในตาราง content โดยฃื่อฟิลด์ และค่าตามตัวแปร array ชื่อ $data
+        // insert("content",$data);
+        
+
+        //load database connection 
+        include("php-connect.php");  
+
+        //make the query to run.
+        //Sort the last name in an ascending order (A-Z)
+        $query = "SELECT max(content_order) as maxOrder FROM content ORDER BY content_order ASC";
+        $result = mysql_query($query) OR die(mysql_error());
+
+        //now we turn the results into an array and loop through them.
+        $maxOrder = 0;
+        while($row = mysql_fetch_array($result)){
+            $maxOrder = $row['maxOrder'];
+        }
+        $maxOrder++;
+
+        $content_order = $maxOrder;
+        $content_name = $filename;
+        $content_type = $ext;
+        $content_url = $folder_name;
+        $content_update_date = date("Y-m-d H:i:s");
+
+        //Command to insert into table
+        $query = "INSERT INTO content (content_order,content_name,content_type,content_url,content_update_date) 
+        VALUES ('$content_order','$content_name','$content_type','$content_url','$content_update_date')"; 
+
+        //run the query to insert the person. 
+        $result = mysql_query($query) OR die(mysql_error()); 
     }
 }
 
