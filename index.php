@@ -53,6 +53,11 @@
                 </ul>
               </div>
 
+              <!-- /menu footer buttons -->
+              <div class="sidebar-footer hidden-small">
+                  <p style="margin-left:15px">Version 1.0</p>
+              </div>
+              <!-- /menu footer buttons -->
             </div>
 
           </div>
