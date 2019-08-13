@@ -44,6 +44,7 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
+                <h3>Decive id : 123456789</h3>
                 <h3>เมนู</h3>
                 <ul class="nav side-menu" style="font-size: 16px;">
                     <li id="menu1"><a><i class="fa fa-image"></i> รูปภาพ </span></a>

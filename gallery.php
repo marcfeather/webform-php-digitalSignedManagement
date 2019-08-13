@@ -9,6 +9,20 @@ if(isset($_POST["name"]))
     $id = $_POST["id"];
     $sql = "DELETE FROM contents WHERE content_id = '".$id."'";
     $conn->query($sql);
+
+    //re order
+    $sql = "SELECT content_id FROM contents ORDER BY content_id";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        $reorder = 0;
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $reorder++;
+            $id = $row['content_id'];
+            $sql = "UPDATE contents SET content_order = '".$reorder."' WHERE content_id = '".$id."'";
+            $conn->query($sql);
+        }
+    }
     $conn->close();
 }
 
@@ -36,7 +50,7 @@ if ($result->num_rows > 0) {
                 <div class="caption">
                     <div class="row">
                         <div class="col-xs-6 col-sm-6 col-md-6" align="left">
-                            <p>'.$filenameExt.'</p>
+                            <p>'.$order.'.'.$filenameExt.'</p>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-6" align="right">
                             <button type="button" class="btn btn-danger btn-xs remove_image" id="'.$id.'" value="'.$filename.'">
