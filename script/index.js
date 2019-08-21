@@ -1,6 +1,5 @@
 
 $(document).ready(function(){
-
     menu1();
     //clear_temp();
 
@@ -103,6 +102,10 @@ $("#menu2").click(function() {
     menu2();
 });
 
+$("#menu3").click(function() {
+    menu3();
+});
+
 $("#btnAddFile").click(function() {
     menu2();
 });
@@ -110,9 +113,11 @@ $("#btnAddFile").click(function() {
 function menu1(){
     $("#menu1").addClass("active");
     $("#menu2").removeClass("active");
+    $("#menu3").removeClass("active");
 
     $("#panelMenu1").css("display", "block");
     $("#panelMenu2").css("display", "none");
+    $("#panelMenu3").css("display", "none");
 
     list_image();
 }
@@ -120,9 +125,21 @@ function menu1(){
 function menu2(){
     $("#menu1").removeClass("active");
     $("#menu2").addClass("active");
+    $("#menu3").removeClass("active");
 
     $("#panelMenu1").css("display", "none");
     $("#panelMenu2").css("display", "block");
+    $("#panelMenu3").css("display", "none");
+}
+
+function menu3(){
+    $("#menu1").removeClass("active");
+    $("#menu2").removeClass("active");
+    $("#menu3").addClass("active");
+
+    $("#panelMenu1").css("display", "none");
+    $("#panelMenu2").css("display", "none");
+    $("#panelMenu3").css("display", "block");
 }
 
 function list_image(){

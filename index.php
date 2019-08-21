@@ -51,6 +51,8 @@
                     </li>
                     <li id="menu2"><a><i class="fa fa-upload"></i> อัพโหลดรูป </span></a>
                     </li>
+                    <li id="menu3"><a><i class="fa fa-upload"></i> อัพโหลดไฟล์ zip </span></a>
+                    </li>
                 </ul>
               </div>
 
@@ -84,6 +86,9 @@
           </div>
           <div id="panelMenu2" style="display:none">
             <?php include("media_upload.php");?>
+          </div>
+          <div id="panelMenu3" style="display:none">
+            <?php include("zip_upload.php");?>
           </div>
         </div>
         <!-- /page content -->
