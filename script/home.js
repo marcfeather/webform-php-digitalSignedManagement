@@ -5,7 +5,7 @@ $(document).ready(function(){
 
     var uploadProcess = false;
     Dropzone.options.dropzoneFrom = {
-        url: "upload.php",
+        url: "controllers/upload.php",
         parallelUploads: 1,
         //maxFilesize: 1, // MB
         maxFiles: 100,
@@ -82,7 +82,7 @@ $(document).ready(function(){
         var id = $(this).attr('id');
         var name = $(this).attr('value');
         $.ajax({
-            url:"gallery.php",
+            url: "controllers/gallery.php",
             method:"POST",
             //data:{name:name,value:value},
             data:{id:id,name:name},
@@ -94,57 +94,103 @@ $(document).ready(function(){
     });
 });
 
-$("#menu1").click(function() {
-    menu1();
+$("#menu11").click(function() {
+    menu11();
 });
 
-$("#menu2").click(function() {
-    menu2();
+$("#menu21").click(function() {
+    menu21();
+});
+$("#menu22").click(function() {
+    menu22();
 });
 
-$("#menu3").click(function() {
-    menu3();
+$("#menu31").click(function() {
+    menu31();
+});
+$("#menu32").click(function() {
+    menu32();
 });
 
 $("#btnAddFile").click(function() {
-    menu2();
+    menu22();
 });
 
-function menu1(){
-    $("#menu1").addClass("active");
-    $("#menu2").removeClass("active");
-    $("#menu3").removeClass("active");
+function menu11(){
+    $("#menu11").addClass("active");
+    $("#menu21").removeClass("active");
+    $("#menu22").removeClass("active");
+    $("#menu31").removeClass("active");
+    $("#menu32").removeClass("active");
 
-    $("#panelMenu1").css("display", "block");
-    $("#panelMenu2").css("display", "none");
-    $("#panelMenu3").css("display", "none");
+    $("#panelMenu11").css("display", "block");
+    $("#panelMenu21").css("display", "none");
+    $("#panelMenu22").css("display", "none");
+    $("#panelMenu31").css("display", "none");
+    $("#panelMenu32").css("display", "none");
+}
+
+function menu21(){
+    $("#menu11").removeClass("active");
+    $("#menu21").addClass("active");
+    $("#menu22").removeClass("active");
+    $("#menu31").removeClass("active");
+    $("#menu32").removeClass("active");
+
+    $("#panelMenu11").css("display", "none");
+    $("#panelMenu21").css("display", "block");
+    $("#panelMenu22").css("display", "none");
+    $("#panelMenu31").css("display", "none");
+    $("#panelMenu32").css("display", "none");
 
     list_image();
 }
 
-function menu2(){
-    $("#menu1").removeClass("active");
-    $("#menu2").addClass("active");
-    $("#menu3").removeClass("active");
+function menu22(){
+    $("#menu11").removeClass("active");
+    $("#menu21").removeClass("active");
+    $("#menu22").addClass("active");
+    $("#menu31").removeClass("active");
+    $("#menu32").removeClass("active");
 
-    $("#panelMenu1").css("display", "none");
-    $("#panelMenu2").css("display", "block");
-    $("#panelMenu3").css("display", "none");
+    $("#panelMenu11").css("display", "none");
+    $("#panelMenu21").css("display", "none");
+    $("#panelMenu22").css("display", "block");
+    $("#panelMenu31").css("display", "none");
+    $("#panelMenu32").css("display", "none");
 }
 
-function menu3(){
-    $("#menu1").removeClass("active");
-    $("#menu2").removeClass("active");
-    $("#menu3").addClass("active");
+function menu31(){
+    $("#menu11").removeClass("active");
+    $("#menu21").removeClass("active");
+    $("#menu22").removeClass("active");
+    $("#menu31").addClass("active");
+    $("#menu32").removeClass("active");
 
-    $("#panelMenu1").css("display", "none");
-    $("#panelMenu2").css("display", "none");
-    $("#panelMenu3").css("display", "block");
+    $("#panelMenu11").css("display", "none");
+    $("#panelMenu21").css("display", "none");
+    $("#panelMenu22").css("display", "none");
+    $("#panelMenu31").css("display", "block");
+    $("#panelMenu32").css("display", "none");
+}
+
+function menu32(){
+    $("#menu11").removeClass("active");
+    $("#menu21").removeClass("active");
+    $("#menu22").removeClass("active");
+    $("#menu31").removeClass("active");
+    $("#menu32").addClass("active");
+
+    $("#panelMenu11").css("display", "none");
+    $("#panelMenu21").css("display", "none");
+    $("#panelMenu22").css("display", "none");
+    $("#panelMenu31").css("display", "none");
+    $("#panelMenu32").css("display", "block");
 }
 
 function list_image(){
     $.ajax({
-        url:"gallery.php",
+        url: "controllers/gallery.php",
         success:function(data){
             $('#galleryView').html(data);
         }

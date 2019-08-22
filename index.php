@@ -12,7 +12,7 @@
     <meta http-equiv="expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/> 
     <meta http-equiv="pragma" content="no-cache" />
 
-    <title>CVM - CORETERA</title>
+    <title>DSM - CORETERA</title>
     <link rel="shortcut icon" href="favicon.ico" />
 
     <!-- Bootstrap -->
@@ -44,15 +44,32 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <h3>Decive id : 123456789</h3>
+                <!-- <h3>Decive id : 123456789</h3> -->
                 <h3>เมนู</h3>
                 <ul class="nav side-menu" style="font-size: 16px;">
-                    <li id="menu1"><a><i class="fa fa-image"></i> รูปภาพ </span></a>
+                    <li id="menu11"><a><i class="fa fa-tablet"></i>อุปกรณ์</span></a>
                     </li>
-                    <li id="menu2"><a><i class="fa fa-upload"></i> อัพโหลดรูป </span></a>
+                    <!-- <li>
+                        <a><i class="fa fa-android"></i>ข้อมูลรูปแบบ Native<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li id="menu21"><a><i class="fa fa-image"></i>Gallery</a></li>
+                            <li id="menu22"><a><i class="fa fa-upload"></i>Upload Images</a></li>
+                        </ul>
+                    </li> -->
+                    <li>
+                        <a><i class="fa fa-html5"></i>ข้อมูลรูปแบบ HTML<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li id="menu31"><a><i class="fa fa-desktop"></i>Demo</a></li>
+                            <li id="menu32"><a><i class="fa fa-file-archive-o"></i>Upload zip</a></li>
+                        </ul>
                     </li>
-                    <li id="menu3"><a><i class="fa fa-upload"></i> อัพโหลดไฟล์ zip </span></a>
-                    </li>
+                    <!-- <li>
+                        <a><i class="fa fa-film"></i>Screen Server<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li id="menu41"><a><i class="fa fa-play-circle"></i>Simple</a></li>
+                            <li id="menu42"><a><i class="fa fa-file-video-o"></i>Upload video</a></li>
+                        </ul>
+                    </li> -->
                 </ul>
               </div>
 
@@ -81,14 +98,20 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-          <div id="panelMenu1">
-            <?php include("media_gallery.php");?>
+          <div id="panelMenu11">
+            <?php include("views/home.php");?>
           </div>
-          <div id="panelMenu2" style="display:none">
-            <?php include("media_upload.php");?>
+          <div id="panelMenu21" style="display:none">
+            <?php include("views/native_image_gallery.php");?>
           </div>
-          <div id="panelMenu3" style="display:none">
-            <?php include("zip_upload.php");?>
+          <div id="panelMenu22" style="display:none">
+            <?php include("views/native_image_upload.php");?>
+          </div>
+          <div id="panelMenu31" style="display:none">
+            <?php include("views/html_zip_demo.php");?>
+          </div>
+          <div id="panelMenu32" style="display:none">
+            <?php include("views/html_zip_upload.php");?>
           </div>
         </div>
         <!-- /page content -->
@@ -119,6 +142,6 @@
     <script src="build/js/custom.min.js"></script>
 
     <!-- Addition Scripts -->
-    <script src="script/index.js"></script>
+    <script src="script/home.js"></script>
   </body>
 </html>

@@ -5,7 +5,8 @@ if(isset($_POST["name"]))
     $filename = $folder_name.$_POST["name"];
     unlink($filename);
 
-    include("mysqli_connect.php"); 
+    include("../helpers/mysqli_connect.php");
+
     $id = $_POST["id"];
     $sql = "DELETE FROM contents WHERE content_id = '".$id."'";
     $conn->query($sql);
@@ -28,7 +29,7 @@ if(isset($_POST["name"]))
 
 $output = '<div class="row">';
 
-include("mysqli_connect.php");
+include("../helpers/mysqli_connect.php");
 
 $sql = "SELECT content_id, content_order, content_name, content_type, content_url FROM contents ORDER BY content_order";
 $result = $conn->query($sql);

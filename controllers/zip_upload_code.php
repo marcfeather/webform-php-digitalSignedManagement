@@ -1,6 +1,7 @@
 <?php
 
-$folder_name = 'content/';
+$folder_name = "../content/";
+$content_url = "content/";
 $fileType = ".zip";
 
 if(!empty($_FILES))
@@ -77,10 +78,10 @@ if(!empty($_FILES))
             // $conn->query($sql);
 
             // $conn->close();
-        }else {
-            $target_file = $folder_name . basename($_FILES["file"]["name"]);
         }
     }
 }
+
+header('Location: ../index.php'); 
 
 ?>

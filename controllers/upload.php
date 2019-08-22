@@ -1,6 +1,7 @@
 <?php
 
-$folder_name = 'content/';
+$folder_name = "../content/";
+$content_url = "content/";
 $fileType = ".jpg";
 
 if(!empty($_FILES))
@@ -18,7 +19,7 @@ if(!empty($_FILES))
     if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
         $status = 1;
 
-        include("mysqli_connect.php"); 
+        include("../helpers/mysqli_connect.php");
 
         //Check dup name
         $sql = "SELECT content_name FROM contents WHERE content_name = '$filename'";
@@ -51,7 +52,6 @@ if(!empty($_FILES))
         $content_order = $maxOrder;
         $content_name = $filename;
         $content_type = $ext;
-        $content_url = $folder_name;
 
         $sql = "INSERT INTO `contents` (`content_order`, `content_name`, `content_type`, `content_url`, `content_datetime`) 
         VALUES ('$content_order', '$content_name', '$content_type', '$content_url', CURRENT_TIMESTAMP)";
