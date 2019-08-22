@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-    menu1();
+    menu11();
     //clear_temp();
 
     var uploadProcess = false;

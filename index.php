@@ -49,6 +49,8 @@
                 <ul class="nav side-menu" style="font-size: 16px;">
                     <li id="menu11"><a><i class="fa fa-tablet"></i>อุปกรณ์</span></a>
                     </li>
+                    <li id="menu31"><a><i class="fa fa-html5"></i>ข้อมูลรูปแบบ HTML</span></a>
+                    </li>
                     <!-- <li>
                         <a><i class="fa fa-android"></i>ข้อมูลรูปแบบ Native<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
@@ -56,13 +58,13 @@
                             <li id="menu22"><a><i class="fa fa-upload"></i>Upload Images</a></li>
                         </ul>
                     </li> -->
-                    <li>
+                    <!-- <li>
                         <a><i class="fa fa-html5"></i>ข้อมูลรูปแบบ HTML<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li id="menu31"><a><i class="fa fa-desktop"></i>Demo</a></li>
                             <li id="menu32"><a><i class="fa fa-file-archive-o"></i>Upload zip</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <!-- <li>
                         <a><i class="fa fa-film"></i>Screen Server<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
@@ -108,7 +110,7 @@
             <?php include("views/native_image_upload.php");?>
           </div>
           <div id="panelMenu31" style="display:none">
-            <?php include("views/html_zip_demo.php");?>
+            <?php include("views/html_zip_list.php");?>
           </div>
           <div id="panelMenu32" style="display:none">
             <?php include("views/html_zip_upload.php");?>
