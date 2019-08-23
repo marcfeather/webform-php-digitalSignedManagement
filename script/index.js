@@ -17,7 +17,7 @@ $(document).ready(function(){
         default:
     }
 
-    
+
     var uploadProcess = false;
     Dropzone.options.dropzoneFrom = {
         url: "controllers/image_upload.php",
@@ -187,6 +187,8 @@ function menu31(){
     $("#panelMenu22").css("display", "none");
     $("#panelMenu31").css("display", "block");
     $("#panelMenu32").css("display", "none");
+
+    GetZipList();
 }
 
 function menu32(){
@@ -208,6 +210,94 @@ function list_image(){
         url: "controllers/image_gallery.php",
         success:function(data){
             $('#galleryView').html(data);
+        }
+    });
+}
+
+function Init_DataTables_Zip(data) {
+    dtZipData = $('#datatable-zipList').DataTable({
+        data: data,
+        bDestroy: true,
+        deferRender: true,
+        searching: false,
+        bLengthChange: false,
+        bInfo: false,
+        bPaginate: false,
+        ordering: false,
+        //lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+        //"order": [[1, "asc"]],
+        columns: [
+            { width: '5%' },
+            { width: '50%' },
+            { width: '30%' },
+            { width: '15%' }
+        ],
+        columnDefs: [
+            {
+                "targets": [0],
+                "className": "text-center"
+            }
+        ],
+        fixedHeader: true,
+        scrollX: true//,
+        //responsive: true
+    });
+
+    dtZipData.on('click', 'tbody tr td button', function () {
+        if ($(this).val() == '') { return; }
+        //$("#btnDelZipData").css("display", "block");
+        id = $(this).val();
+
+        GetZipData_byId(id);
+    });
+}
+
+function GetZipList() {
+    $.ajax({
+        url: "controllers/zip_get_data.php",
+        type: "POST",
+        dataType: "json",
+        success: function (data) {
+            if (data == null) { return; }
+            var dataReturn = [];
+            var i;
+            for (i = 0; i < data.length; i++) {
+                dataReturn.push([
+                    data[i].rowNum,
+                    data[i].content_name,
+                    data[i].content_datetime,
+                    '<div style="text-align:center;"><button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target=".bs-user-modal-lg" id="getEdit" value="' + data[i].content_id + '">'
+                    + '<span class="glyphicon glyphicon-pencil" style="margin-right:5px" aria-hidden="true">'
+                    + '</span>Edit</button></div>'
+                ]);
+            }
+
+            Init_DataTables_Zip(dataReturn);
+        }
+    });
+}
+
+function GetZipData_byId(_id) {
+    $.ajax({
+        url: "controllers/zip_get_data.php",
+        type: "POST",
+        dataType: "json",
+        data:{id:_id},
+        success: function (data) {
+            alert(data);
+            if (data == null) { return; }
+            // var dataReturn = [];
+            // var i;
+            // for (i = 0; i < data.length; i++) {
+            //     dataReturn.push([
+            //         data[i].rowNum,
+            //         data[i].content_name,
+            //         data[i].content_datetime,
+            //         '<div style="text-align:center;"><button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target=".bs-user-modal-lg" id="getEdit" value="' + data[i].content_id + '">'
+            //         + '<span class="glyphicon glyphicon-pencil" style="margin-right:5px" aria-hidden="true">'
+            //         + '</span>Edit</button></div>'
+            //     ]);
+            // }
         }
     });
 }

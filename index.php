@@ -23,6 +23,8 @@
     <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- Dropzone.js -->
     <link href="vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
+    <!-- Datatable -->
+    <link href="vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
     
     <!-- Custom styling plus plugins -->
     <link href="build/css/custom.css" rel="stylesheet">
@@ -139,6 +141,9 @@
     <script src="vendors/nprogress/nprogress.js"></script>
     <!-- Dropzone.js -->
     <script src="vendors/dropzone/dist/min/dropzone.min.js"></script>
+    <!-- Datatable -->
+    <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
