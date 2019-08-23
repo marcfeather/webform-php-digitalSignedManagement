@@ -82,6 +82,6 @@ if(!empty($_FILES))
     }
 }
 
-header('Location: ../index.php'); 
+header('Location: ../index.php?id=31'); 
 
 ?>

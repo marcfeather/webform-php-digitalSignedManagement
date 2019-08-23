@@ -1,7 +1,14 @@
 
-$(document).ready(function(){
-    menu11();
-    //clear_temp();
+$(document).ready(function(){    
+    switch(parseInt(menu)) {
+        case 11:
+            menu11();
+            break;
+        case 31:
+            menu31();
+            break;
+        default:
+    }
 
     var uploadProcess = false;
     Dropzone.options.dropzoneFrom = {

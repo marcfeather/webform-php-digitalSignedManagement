@@ -143,6 +143,15 @@
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
 
+    <?php 
+    if (isset($_GET['id'])) {
+      $menu = intval($_GET['id']);
+    }else {
+      $menu = 11;
+    }
+    ?>
+    <script> var menu = "<?php echo $menu; ?>";</script>
+
     <!-- Addition Scripts -->
     <script src="script/home.js"></script>
   </body>
