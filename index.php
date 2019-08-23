@@ -101,7 +101,7 @@
         <!-- page content -->
         <div class="right_col" role="main">
           <div id="panelMenu11">
-            <?php include("views/home.php");?>
+            <?php include("views/devices.php");?>
           </div>
           <div id="panelMenu21" style="display:none">
             <?php include("views/native_image_gallery.php");?>
@@ -147,12 +147,21 @@
     if (isset($_GET['id'])) {
       $menu = intval($_GET['id']);
     }else {
-      $menu = 11;
+      $menu = 0;
+    }
+
+    if (isset($_GET['err'])) {
+      $error = intval($_GET['err']);
+    }else {
+      $error = 0;
     }
     ?>
-    <script> var menu = "<?php echo $menu; ?>";</script>
+    <script> 
+      var menu = "<?php echo $menu; ?>";
+      var error = "<?php echo $error; ?>";
+    </script>
 
     <!-- Addition Scripts -->
-    <script src="script/home.js"></script>
+    <script src="script/index.js"></script>
   </body>
 </html>

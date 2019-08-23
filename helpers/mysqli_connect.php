@@ -2,7 +2,7 @@
     $servername = "localhost";
     $username = "coretera_cvmadmin";
     $password = "cvm789P@ss";
-    $dbname = "coretera_cvm";
+    $dbname = "coretera_dsm";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);

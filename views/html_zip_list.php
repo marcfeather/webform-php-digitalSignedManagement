@@ -29,7 +29,7 @@
                             <h4 class="modal-title">Select a zip file to upload</h4>
                         </div>
                         <div class="modal-body">
-                            <form enctype="multipart/form-data" method="post" action="controllers/zip_upload_code.php">
+                            <form enctype="multipart/form-data" method="post" action="controllers/zip_upload.php">
                                 <label><input type="file" name="zip_file" required=""/></label>
                                 <br/><br/>
                                 <input type="submit" name="submit" class="modal-upload btn btn-dark" value="Upload" style="width:100%; height:40px;"/>

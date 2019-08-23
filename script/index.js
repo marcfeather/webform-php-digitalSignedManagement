@@ -1,18 +1,26 @@
 
-$(document).ready(function(){    
+$(document).ready(function(){  
+    //select menu  
     switch(parseInt(menu)) {
-        case 11:
-            menu11();
-            break;
         case 31:
             menu31();
             break;
         default:
+            menu11();
     }
 
+    //detect error
+    switch(parseInt(error)) {
+        case 1:
+            alert('Duplicate data !');
+            break;
+        default:
+    }
+
+    
     var uploadProcess = false;
     Dropzone.options.dropzoneFrom = {
-        url: "controllers/upload.php",
+        url: "controllers/image_upload.php",
         parallelUploads: 1,
         //maxFilesize: 1, // MB
         maxFiles: 100,
@@ -89,7 +97,7 @@ $(document).ready(function(){
         var id = $(this).attr('id');
         var name = $(this).attr('value');
         $.ajax({
-            url: "controllers/gallery.php",
+            url: "controllers/image_gallery.php",
             method:"POST",
             //data:{name:name,value:value},
             data:{id:id,name:name},
@@ -197,7 +205,7 @@ function menu32(){
 
 function list_image(){
     $.ajax({
-        url: "controllers/gallery.php",
+        url: "controllers/image_gallery.php",
         success:function(data){
             $('#galleryView').html(data);
         }

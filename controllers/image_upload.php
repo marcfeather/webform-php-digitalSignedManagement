@@ -22,12 +22,12 @@ if(!empty($_FILES))
         include("../helpers/mysqli_connect.php");
 
         //Check dup name
-        $sql = "SELECT content_name FROM contents WHERE content_name = '$filename'";
+        $sql = "SELECT count(content_name) as countDup FROM contents WHERE content_name = '$filename'";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                $countDup = $row['content_name'];
+                $countDup = $row['countDup'];
             }
         }else {
             $countDup = 0;
