@@ -9,15 +9,12 @@ if(!empty($_POST['id'])){
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         //output data of each row
-        $rowNum = 0;
         while($row = $result->fetch_assoc()) {
-            $rowNum = $rowNum + 1;
             $device_group_id = $row['device_group_id'];
             $device_group_name = $row['device_group_name'];
             $device_group_content_id = $row['device_group_content_id'];
         
-            $data[] = array("rowNum" => $rowNum,
-                            "device_group_id" => $device_group_id,
+            $data[] = array("device_group_id" => $device_group_id,
                             "device_group_name" => $device_group_name,
                             "device_group_content_id" => $device_group_content_id);
         }

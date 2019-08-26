@@ -148,6 +148,8 @@ function menu11(){
     $("#panelMenu22").css("display", "none");
     $("#panelMenu31").css("display", "none");
     $("#panelMenu32").css("display", "none");
+
+    GetDeviceList();
 }
 
 function menu12(){

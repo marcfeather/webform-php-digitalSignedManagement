@@ -57,25 +57,29 @@ if(!empty($_FILES))
                 return;
             }
 
-            $sql = "SELECT max(content_order) as maxOrder FROM contents";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                // output data of each row
-                while($row = $result->fetch_assoc()) {
-                    $maxOrder = $row['maxOrder'];
-                }
-            }else {
-                $maxOrder = 0;
-            }
-            $maxOrder++;
+            // $sql = "SELECT max(content_order) as maxOrder FROM contents";
+            // $result = $conn->query($sql);
+            // if ($result->num_rows > 0) {
+            //     // output data of each row
+            //     while($row = $result->fetch_assoc()) {
+            //         $maxOrder = $row['maxOrder'];
+            //     }
+            // }else {
+            //     $maxOrder = 0;
+            // }
+            // $maxOrder++;
 
-            $content_order = $maxOrder;
+            //$content_order = $maxOrder;
             $content_name = $filename;
             $content_extension = $ext;
             $content_url = $folder_name;
 
-            $sql = "INSERT INTO `contents` (`content_order`, `content_name`, `content_extension`, `content_url`, `content_datetime`) 
-            VALUES ('$content_order', '$content_name', '$content_extension', '$content_url', CURRENT_TIMESTAMP)";
+            // $sql = "INSERT INTO `contents` (`content_order`, `content_name`, `content_extension`, `content_url`, `content_datetime`) 
+            // VALUES ('$content_order', '$content_name', '$content_extension', '$content_url', CURRENT_TIMESTAMP)";
+            // $conn->query($sql);
+
+            $sql = "INSERT INTO contents (content_name, content_extension, content_url, content_datetime) 
+            VALUES ('$content_name', '$content_extension', '$content_url', CURRENT_TIMESTAMP)";
             $conn->query($sql);
 
             $conn->close();

@@ -178,6 +178,7 @@
 
     <!-- Addition Scripts -->
     <script src="script/index.js"></script>
+    <script src="script/device_list.js"></script>
     <script src="script/device_group.js"></script>
     <script src="script/html_zip_list.js"></script>
   </body>

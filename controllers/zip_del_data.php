@@ -42,19 +42,19 @@ if(!empty($_POST['id'])){
             $sql = "DELETE FROM contents WHERE content_id = {$_POST['id']} AND content_extension = 'zip' ";
             $conn->query($sql);
 
-            //re order data from the database
-            $sql = "SELECT content_id FROM contents WHERE content_extension = 'zip' ORDER BY content_order";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                //output data of each row
-                $rowNum = 0;
-                while($row = $result->fetch_assoc()) {
-                    $rowNum = $rowNum + 1;
+            // //re order data from the database
+            // $sql = "SELECT content_id FROM contents WHERE content_extension = 'zip' ORDER BY content_order";
+            // $result = $conn->query($sql);
+            // if ($result->num_rows > 0) {
+            //     //output data of each row
+            //     $rowNum = 0;
+            //     while($row = $result->fetch_assoc()) {
+            //         $rowNum = $rowNum + 1;
                 
-                    $sql = "UPDATE contents SET content_order = {$rowNum} WHERE content_id = {$row['content_id']} AND content_extension = 'zip' ";
-                    $conn->query($sql);
-                }
-            }
+            //         $sql = "UPDATE contents SET content_order = {$rowNum} WHERE content_id = {$row['content_id']} AND content_extension = 'zip' ";
+            //         $conn->query($sql);
+            //     }
+            // }
 
             $data[] = array("result" => true,
                             "error" => '');
@@ -63,7 +63,7 @@ if(!empty($_POST['id'])){
 
     } catch (Exception $e) {
         $data[] = array("result" => false,
-                        "error" => 'Deleting error!');
+                        "error" => $e);
         echo json_encode($data);
     }
 }

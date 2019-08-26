@@ -1,10 +1,11 @@
 var id;
 
 $(document).ready(function(){  
-    $('#btnAddDeviceGroup').click(function () {
-        $("#btnDelDeviceGroup").css("display", "none");
+    $('#btnAddDevice').click(function () {
+        $("#btnDelDevice").css("display", "none");
         id = '';
-        var inputA = $('#inpGroupName');
+        $('#inpDeviceImei').val('');
+        var inputA = $('#inpDeviceName');
         //clear text
         inputA.val('');
         //delay 0.1 sec and focus text
@@ -12,35 +13,40 @@ $(document).ready(function(){
             inputA.focus();
         }, 500);
 
-        GetContentDataList(0);
+        GetDeviceGroupData(0);
     });
 
-    $('#btnSaveDeviceGroup').click(function () {
-        var inputA = $('#inpGroupName');
+    $('#btnSaveDevice').click(function () {
+        var inputA = $('#inpDeviceName');
         if (inputA.val() == '') {
             inputA.focus();
             return;
         }
-        var inputB = $('#ddlContentData');
-        if (inputB.val() == '0') {
+        var inputB = $('#inpDeviceImei');
+        if (inputB.val() == '') {
             inputB.focus();
             return;
         }
+        var inputC = $('#ddlDeviceGroup');
+        if (inputC.val() == '0') {
+            inputC.focus();
+            return;
+        }
         
-        DeviceGroupSave(id);
+        DeviceSave(id);
     });
 
-    $('#btnDelDeviceGroup').click(function () {
+    $('#btnDelDevice').click(function () {
         var r = confirm("Are you sure !");
         if (r == true) {
             //delete
-            DeleteDeviceGroupData_byId(id);
+            DeleteDeviceListData_byId(id);
         }
     });
 });
 
-function Init_DataTables_DeviceGroup(data) {
-    dtDeviceGroupData = $('#datatable-deviceGroup').DataTable({
+function Init_DataTables_DeviceList(data) {
+    dtDeviceListData = $('#datatable-deviceList').DataTable({
         data: data,
         bDestroy: true,
         deferRender: true,
@@ -53,13 +59,24 @@ function Init_DataTables_DeviceGroup(data) {
         //"order": [[1, "asc"]],
         columns: [
             { width: '5%' },
-            { width: '50%' },
-            { width: '35%' },
-            { width: '15%' }
+            { width: '15%' },
+            { width: '25%' },
+            { width: '20%' },
+            { width: '10%' },
+            { width: '15%' },
+            { width: '10%' }
         ],
         columnDefs: [
             {
                 "targets": [0],
+                "className": "text-center"
+            },
+            {
+                "targets": [4],
+                "className": "text-center"
+            },
+            {
+                "targets": [5],
                 "className": "text-center"
             }
         ],
@@ -68,18 +85,18 @@ function Init_DataTables_DeviceGroup(data) {
         //responsive: true
     });
 
-    dtDeviceGroupData.on('click', 'tbody tr td button', function () {
+    dtDeviceListData.on('click', 'tbody tr td button', function () {
         if ($(this).val() == '') { return; }
-        $("#btnDelDeviceGroup").css("display", "block");
+        $("#btnDelDevice").css("display", "block");
         id = $(this).val();
 
-        GetDeviceGroupList_byId(id);
+        GetDeviceList_byId(id);
     });
 }
 
-function GetDeviceGroupList() {
+function GetDeviceList() {
     $.ajax({
-        url: "controllers/deviceGroup_get_data.php",
+        url: "controllers/device_get_data.php",
         type: "POST",
         dataType: "json",
         success: function (data) {
@@ -90,73 +107,74 @@ function GetDeviceGroupList() {
                 dataReturn.push([
                     data[i].rowNum,
                     data[i].device_group_name,
-                    data[i].content_name,
+                    data[i].device_name,
+                    data[i].device_imei,
+                    data[i].device_status_name,
+                    data[i].device_date,
                     '<div style="text-align:center;"><button type="button" class="btn btn-warning btn-xs"'
-                    + ' data-toggle="modal" data-target="#deviceGroupDetailModal" id="getEdit" value="' + data[i].device_group_id + '">'
+                    + ' data-toggle="modal" data-target="#deviceDetailModal" id="getEdit" value="' + data[i].device_id + '">'
                     + ' <span class="glyphicon glyphicon-pencil" style="margin-right:5px" aria-hidden="true">'
                     + ' </span>Edit</button></div>'
                 ]);
             }
 
-            Init_DataTables_DeviceGroup(dataReturn);
+            Init_DataTables_DeviceList(dataReturn);
         }
     });
 }
 
-function GetDeviceGroupList_byId(_id) {
+function GetDeviceList_byId(_id) {
     $.ajax({
-        url: "controllers/deviceGroup_get_data.php",
+        url: "controllers/device_get_data.php",
         type: "POST",
         data: { id: _id},
         dataType: "json",
         success: function (data) {
             if (data == null) { return; }
-            $('#inpGroupName').val(data[0].device_group_name);
+            $('#inpDeviceName').val(data[0].device_name);
+            $('#inpDeviceImei').val(data[0].device_imei);
 
-            GetContentDataList(data[0].device_group_content_id);
+            GetDeviceGroupData(data[0].device_group_id);
         }
     });
 }
 
-function DeleteDeviceGroupData_byId(_id) {
+function DeleteDeviceListData_byId(_id) {
     $.ajax({
-        url: "controllers/deviceGroup_del_data.php",
+        url: "controllers/device_del_data.php",
         type: "POST",
         dataType: "json",
         data:{id:_id},
         success: function (data) {
             if (data == null) { return; }
-
-            if (data[0].result) {
+            if (data) {
                 //get data
-                GetDeviceGroupList();
+                GetDeviceList();
                 //close modal
-                $('#deviceGroupDetailModal').modal('toggle');
-            }else {
-                alert(data[0].error);
+                $('#deviceDetailModal').modal('toggle');
             }
         }
     });
 }
 
-function GetContentDataList(_value) {
+function GetDeviceGroupData(_value) {
     $.ajax({
-        url: "controllers/zip_get_data.php",
+        url: "controllers/deviceGroup_get_data.php",
         type: "POST",
         dataType: "json",
         success: function (data) {
             try {
                 if (data == null) { return; }
 
-                $('#ddlContentData').empty();
+                $('#ddlDeviceGroup').empty();
                 var div_data = "<option value='0'>Please Select</option>";
-                $(div_data).appendTo('#ddlContentData');
+                $(div_data).appendTo('#ddlDeviceGroup');
                 for (i = 0; i < data.length; i++) {
-                    var div_data = "<option value=" + data[i].content_id + ">" + data[i].rowNum + '. ' + data[i].content_name + "</option>";
-                    $(div_data).appendTo('#ddlContentData');
+                    var div_data = "<option value=" + data[i].device_group_id + ">" + data[i].rowNum + '. ' + data[i].device_group_name + "</option>";
+                    $(div_data).appendTo('#ddlDeviceGroup');
                 }
 
-                $("#ddlContentData").val(_value);
+                $("#ddlDeviceGroup").val(_value);
             }
             catch (err) {
                 alert(err.message);
@@ -168,24 +186,26 @@ function GetContentDataList(_value) {
     });
 };
 
-function DeviceGroupSave(_id) {
-    var _groupName = $('#inpGroupName').val();
-    var _contentDataId = $('#ddlContentData').val();
+function DeviceSave(_id) {
+    var _deviceName = $('#inpDeviceName').val();
+    var _deviceImei = $('#inpDeviceImei').val();
+    var _deviceGroupId = $('#ddlDeviceGroup').val();
 
     // alert(_id);
-    // alert(_groupName);
-    // alert(_contentDataId);
+    // alert(_deviceName);
+    // alert(_deviceImei);
+    // alert(_deviceGroupId);
 
     if (_id != '') {
         $.ajax({
-            url: "controllers/deviceGroup_add_up_data.php",
+            url: "controllers/device_add_up_data.php",
             type: "POST",
-            data: { id: _id, groupName: _groupName, contentDataId: _contentDataId},
+            data: { id: _id, deviceName: _deviceName, deviceImei: _deviceImei, deviceGroupId: _deviceGroupId },
             success: function (data) {
                 if (!data) { return; }
                 if (data) {
-                    $('#deviceGroupDetailModal').modal('toggle');
-                    GetDeviceGroupList();
+                    $('#deviceDetailModal').modal('toggle');
+                    GetDeviceList();
                 }else {
                     alert('Error!');
                 }
@@ -194,14 +214,14 @@ function DeviceGroupSave(_id) {
 
     } else {
         $.ajax({
-            url: "controllers/deviceGroup_add_up_data.php",
+            url: "controllers/device_add_up_data.php",
             type: "POST",
-            data: { groupName: _groupName, contentDataId: _contentDataId },
+            data: { deviceName: _deviceName, deviceImei: _deviceImei, deviceGroupId: _deviceGroupId },
             success: function (data) {
                 if (!data) { return; }
                 if (data) {
-                    $('#deviceGroupDetailModal').modal('toggle');
-                    GetDeviceGroupList();
+                    $('#deviceDetailModal').modal('toggle');
+                    GetDeviceList();
                 }else {
                     alert('Error!');
                 }
