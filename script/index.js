@@ -112,6 +112,9 @@ $(document).ready(function(){
 $("#menu11").click(function() {
     menu11();
 });
+$("#menu12").click(function() {
+    menu12();
+});
 
 $("#menu21").click(function() {
     menu21();
@@ -133,26 +136,48 @@ $("#btnAddFile").click(function() {
 
 function menu11(){
     $("#menu11").addClass("active");
+    $("#menu12").removeClass("active");
     $("#menu21").removeClass("active");
     $("#menu22").removeClass("active");
     $("#menu31").removeClass("active");
     $("#menu32").removeClass("active");
 
     $("#panelMenu11").css("display", "block");
+    $("#panelMenu12").css("display", "none");
     $("#panelMenu21").css("display", "none");
     $("#panelMenu22").css("display", "none");
     $("#panelMenu31").css("display", "none");
     $("#panelMenu32").css("display", "none");
 }
 
+function menu12(){
+    $("#menu11").removeClass("active");
+    $("#menu12").addClass("active");
+    $("#menu21").removeClass("active");
+    $("#menu22").removeClass("active");
+    $("#menu31").removeClass("active");
+    $("#menu32").removeClass("active");
+
+    $("#panelMenu11").css("display", "none");
+    $("#panelMenu12").css("display", "block");
+    $("#panelMenu21").css("display", "none");
+    $("#panelMenu22").css("display", "none");
+    $("#panelMenu31").css("display", "none");
+    $("#panelMenu32").css("display", "none");
+
+    GetDeviceGroupList();
+}
+
 function menu21(){
     $("#menu11").removeClass("active");
+    $("#menu12").removeClass("active");
     $("#menu21").addClass("active");
     $("#menu22").removeClass("active");
     $("#menu31").removeClass("active");
     $("#menu32").removeClass("active");
 
     $("#panelMenu11").css("display", "none");
+    $("#panelMenu12").css("display", "none");
     $("#panelMenu21").css("display", "block");
     $("#panelMenu22").css("display", "none");
     $("#panelMenu31").css("display", "none");
@@ -163,12 +188,14 @@ function menu21(){
 
 function menu22(){
     $("#menu11").removeClass("active");
+    $("#menu12").removeClass("active");
     $("#menu21").removeClass("active");
     $("#menu22").addClass("active");
     $("#menu31").removeClass("active");
     $("#menu32").removeClass("active");
 
     $("#panelMenu11").css("display", "none");
+    $("#panelMenu12").css("display", "none");
     $("#panelMenu21").css("display", "none");
     $("#panelMenu22").css("display", "block");
     $("#panelMenu31").css("display", "none");
@@ -177,12 +204,14 @@ function menu22(){
 
 function menu31(){
     $("#menu11").removeClass("active");
+    $("#menu12").removeClass("active");
     $("#menu21").removeClass("active");
     $("#menu22").removeClass("active");
     $("#menu31").addClass("active");
     $("#menu32").removeClass("active");
 
     $("#panelMenu11").css("display", "none");
+    $("#panelMenu12").css("display", "none");
     $("#panelMenu21").css("display", "none");
     $("#panelMenu22").css("display", "none");
     $("#panelMenu31").css("display", "block");
@@ -193,12 +222,14 @@ function menu31(){
 
 function menu32(){
     $("#menu11").removeClass("active");
+    $("#menu12").removeClass("active");
     $("#menu21").removeClass("active");
     $("#menu22").removeClass("active");
     $("#menu31").removeClass("active");
     $("#menu32").addClass("active");
 
     $("#panelMenu11").css("display", "none");
+    $("#panelMenu12").css("display", "none");
     $("#panelMenu21").css("display", "none");
     $("#panelMenu22").css("display", "none");
     $("#panelMenu31").css("display", "none");

@@ -23,7 +23,7 @@
                 </div>
                 <div class="x_content">
 
-                <table id="datatable-devices" class="table table-striped table-bordered" cellspacing="0" style="width: 100%">
+                <table id="datatable-deviceList" class="table table-striped table-bordered" cellspacing="0" style="width: 100%">
                     <thead>
                         <tr>
                             <th class="text-center" style="width: 5%">NO</th>

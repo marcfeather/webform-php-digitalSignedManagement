@@ -49,7 +49,14 @@
                 <!-- <h3>Decive id : 123456789</h3> -->
                 <h3>เมนู</h3>
                 <ul class="nav side-menu" style="font-size: 16px;">
-                    <li id="menu11"><a><i class="fa fa-tablet"></i>อุปกรณ์</span></a>
+                    <!-- <li id="menu11"><a><i class="fa fa-tablet"></i>อุปกรณ์</span></a>
+                    </li> -->
+                    <li>
+                        <a><i class="fa fa-tablet"></i>อุปกรณ์<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li id="menu11"><a href="index.php"><i class="fa fa-list-alt"></i>รายการอุปกรณ์</a></li>
+                            <li id="menu12"><a><i class="fa fa-th-list"></i>กลุ่มอุปกรณ์</a></li>
+                        </ul>
                     </li>
                     <li id="menu31"><a><i class="fa fa-html5"></i>ข้อมูลรูปแบบ HTML</span></a>
                     </li>
@@ -103,7 +110,10 @@
         <!-- page content -->
         <div class="right_col" role="main">
           <div id="panelMenu11">
-            <?php include("views/devices.php");?>
+            <?php include("views/device_list.php");?>
+          </div>
+          <div id="panelMenu12" style="display:none">
+            <?php include("views/device_group.php");?>
           </div>
           <div id="panelMenu21" style="display:none">
             <?php include("views/native_image_gallery.php");?>
@@ -123,7 +133,7 @@
         <!-- footer content -->
         <footer>
           <!-- <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            Coretera <a href="http://www.coretera.co.th">coretera</a>
           </div> -->
           <div class="clearfix"></div>
         </footer>
@@ -168,6 +178,7 @@
 
     <!-- Addition Scripts -->
     <script src="script/index.js"></script>
+    <script src="script/device_group.js"></script>
     <script src="script/html_zip_list.js"></script>
   </body>
 </html>
