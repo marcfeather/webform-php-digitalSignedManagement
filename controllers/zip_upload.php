@@ -1,7 +1,7 @@
 <?php
 
-$folder_name = "../content/html/";
-$content_url = "content/html/";
+$folder_name = "../contents/html/";
+$content_url = "contents/html/";
 $fileType = ".zip";
 
 if(!empty($_FILES))

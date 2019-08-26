@@ -1,7 +1,7 @@
 <?php
     $servername = "localhost";
-    $username = "coretera_cvmadmin";
-    $password = "cvm789P@ss";
+    $username = "coretera_dsmadmin";
+    $password = "dsm789P@ss";
     $dbname = "coretera_dsm";
 
     // Create connection

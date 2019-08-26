@@ -1,7 +1,7 @@
 <?php
 
-$folder_name = "../content/";
-$content_url = "content/";
+$folder_name = "../contents/";
+$content_url = "contents/";
 $fileType = ".jpg";
 
 if(!empty($_FILES))
