@@ -74,9 +74,12 @@ function DeleteZipData_byId(_id) {
         data:{id:_id},
         success: function (data) {
             if (data == null) { return; }
-            if (data) {
+
+            if (data[0].result) {
                 //get data
                 GetZipList();
+            }else {
+                alert(data[0].error);
             }
         }
     });
