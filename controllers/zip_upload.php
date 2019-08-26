@@ -38,7 +38,7 @@ if(!empty($_FILES))
         if (move_uploaded_file($_FILES["zip_file"]["tmp_name"], $target_file)) {
             $status = 1;
             
-            include("../helpers/mysqli_connect.php"); 
+            include("../helpers/mysqli_connect.php");
 
             //Check dup name
             $sql = "SELECT count(content_name) as countDup FROM contents WHERE content_name = '$filename'";

@@ -168,5 +168,6 @@
 
     <!-- Addition Scripts -->
     <script src="script/index.js"></script>
+    <script src="script/html_zip_list.js"></script>
   </body>
 </html>
