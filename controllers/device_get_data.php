@@ -5,7 +5,7 @@ include("../helpers/mysqli_connect.php");
 
 if(!empty($_POST['id'])){
     //get data from the database
-    $sql = "SELECT device_id, device_imei, device_name, device_status_id, device_date, device_group_id 
+    $sql = "SELECT device_id, device_imei, device_name, device_status_id, device_datetime, device_group_id 
     FROM devices WHERE device_id = {$_POST['id']}";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
@@ -15,21 +15,21 @@ if(!empty($_POST['id'])){
             $device_name = $row['device_name'];
             $device_imei = $row['device_imei'];
             $device_status_id = $row['device_status_id'];
-            $device_date = $row['device_date'];
+            $device_datetime = $row['device_datetime'];
             $device_group_id = $row['device_group_id'];
         
             $data[] = array("device_id" => $device_id,
                             "device_name" => $device_name,
                             "device_imei" => $device_imei,
                             "device_status_id" => $device_status_id,
-                            "device_date" => $device_date,
+                            "device_datetime" => $device_datetime,
                             "device_group_id" => $device_group_id);
         }
     }
 
 }else {
     //get data from the database
-    $sql = "SELECT a.device_id, b.device_group_name, a.device_imei, a.device_name, c.device_status_name, a.device_date 
+    $sql = "SELECT a.device_id, b.device_group_name, a.device_imei, a.device_name, c.device_status_name, a.device_datetime 
     FROM devices a 
     LEFT JOIN device_group b on b.device_group_id = a.device_group_id
     LEFT JOIN ms_device_status c on c.device_status_id = a.device_status_id
@@ -45,7 +45,7 @@ if(!empty($_POST['id'])){
             $device_name = $row['device_name'];
             $device_imei = $row['device_imei'];
             $device_status_name = $row['device_status_name'];
-            $device_date = $row['device_date'];
+            $device_datetime = $row['device_datetime'];
         
             $data[] = array("rowNum" => $rowNum,
                             "device_id" => $device_id,
@@ -53,7 +53,7 @@ if(!empty($_POST['id'])){
                             "device_name" => $device_name,
                             "device_imei" => $device_imei,
                             "device_status_name" => $device_status_name,
-                            "device_date" => $device_date);
+                            "device_datetime" => $device_datetime);
         }
     }
 }

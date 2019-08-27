@@ -43,6 +43,13 @@ $(document).ready(function(){
             DeleteDeviceListData_byId(id);
         }
     });
+
+    $(".allownumericwithoutdecimal").on("keypress keyup blur", function (event) {
+        $(this).val($(this).val().replace(/[^\d].+/, ""));
+        if ((event.which < 48 || event.which > 57)) {
+            event.preventDefault();
+        }
+    });
 });
 
 function Init_DataTables_DeviceList(data) {
@@ -110,7 +117,7 @@ function GetDeviceList() {
                     data[i].device_name,
                     data[i].device_imei,
                     data[i].device_status_name,
-                    data[i].device_date,
+                    data[i].device_datetime,
                     '<div style="text-align:center;"><button type="button" class="btn btn-warning btn-xs"'
                     + ' data-toggle="modal" data-target="#deviceDetailModal" id="getEdit" value="' + data[i].device_id + '">'
                     + ' <span class="glyphicon glyphicon-pencil" style="margin-right:5px" aria-hidden="true">'
