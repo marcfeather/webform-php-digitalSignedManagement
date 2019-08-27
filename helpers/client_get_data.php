@@ -3,7 +3,7 @@ header("content-type:text/javascript;charset=utf-8");
 
 include("mysqli_connect.php"); 
 
-$sql = "SELECT CONCAT('/', content_url, content_name, '.', content_type) AS local_path FROM contents ORDER BY content_order";
+$sql = "SELECT CONCAT('/', content_url, content_name, '.', content_extension) AS local_path FROM contents ORDER BY content_id";
 
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {

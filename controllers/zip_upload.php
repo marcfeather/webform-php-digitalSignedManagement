@@ -1,10 +1,11 @@
 <?php
-// CHANGE THE UPLOAD LIMITS
-ini_set('upload_max_filesize', '500M');
-ini_set('post_max_size', '500M');
-ini_set('memory_limit', '1024M');
-ini_set('max_input_time', 300);
-ini_set('max_execution_time', 300);
+// // CHANGE THE UPLOAD LIMITS
+// ini_set('upload_max_filesize', '1024M');
+// ini_set('post_max_size', '1024M');
+// ini_set('memory_limit', '1024M');
+// ini_set('max_input_time', 300);
+// ini_set('max_execution_time', 300);
+//phpinfo();
 
 $folder_name = "../contents/html/";
 $content_url = "contents/html/";
