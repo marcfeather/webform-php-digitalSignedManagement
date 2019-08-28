@@ -35,7 +35,7 @@ if(!empty($_POST['id'])){
             return;
         }
 
-        $flgDelete = unlink($content_path);
+        $flgDelete = unlink('../'.$content_path);
         if($flgDelete)
         {
             //del data from the database
