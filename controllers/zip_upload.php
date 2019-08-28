@@ -79,7 +79,7 @@ if(!empty($_FILES))
             //$content_order = $maxOrder;
             $content_name = $filename;
             $content_extension = $ext;
-            $content_url = $folder_name;
+            //$content_url = $folder_name;
 
             // $sql = "INSERT INTO `contents` (`content_order`, `content_name`, `content_extension`, `content_url`, `content_datetime`) 
             // VALUES ('$content_order', '$content_name', '$content_extension', '$content_url', CURRENT_TIMESTAMP)";

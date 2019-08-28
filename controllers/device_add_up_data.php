@@ -16,7 +16,7 @@ if(!empty($_POST['id'])){
 }else {
     try {
         //del data from the database
-        $sql = "INSERT INTO devices (device_name, device_imei, device_status_id, device_datetime, device_group_id) VALUE ('{$_POST['deviceName']}', '{$_POST['deviceImei']}', 1, CURRENT_TIMESTAMP, {$_POST['deviceGroupId']}) ";
+        $sql = "INSERT INTO devices (device_name, device_imei, device_status_id, device_datetime, device_group_id) VALUE ('{$_POST['deviceName']}', '{$_POST['deviceImei']}', 0, CURRENT_TIMESTAMP, {$_POST['deviceGroupId']}) ";
         $conn->query($sql);
 
         echo json_encode(true);
