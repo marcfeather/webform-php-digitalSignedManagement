@@ -1,11 +1,11 @@
 <?php
 // // CHANGE THE UPLOAD LIMITS
-// ini_set('upload_max_filesize', '1024M');
-// ini_set('post_max_size', '1024M');
-// ini_set('memory_limit', '1024M');
+// ini_set('upload_max_filesize', '5120M');
+// ini_set('post_max_size', '5120M');
+// ini_set('memory_limit', '5120M');
 // ini_set('max_file_uploads', '1000');
-// ini_set('max_input_time', 300);
-// ini_set('max_execution_time', 300);
+// ini_set('max_input_time', 3600);
+// ini_set('max_execution_time', 3600);
 //phpinfo();
 
 $folder_name = "../contents/html/";
