@@ -1,16 +1,25 @@
 
+$(document).ready(function(){  
+    //detect message
+    if (message != '') {
+        alert(message);
+    }
+
+    GetZipList();
+});
+
 function Init_DataTables_Zip(data) {
     dtZipData = $('#datatable-zipList').DataTable({
         data: data,
         bDestroy: true,
         deferRender: true,
-        searching: false,
-        bLengthChange: false,
-        bInfo: false,
-        bPaginate: false,
-        ordering: false,
-        //lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
-        //"order": [[1, "asc"]],
+        //searching: false,
+        //bLengthChange: false,
+        //bInfo: false,
+        //bPaginate: false,
+        //ordering: false,
+        lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+        "order": [[0, "asc"]],
         columns: [
             { width: '5%' },
             { width: '50%' },
@@ -21,11 +30,15 @@ function Init_DataTables_Zip(data) {
             {
                 "targets": [0],
                 "className": "text-center"
+            },
+            {
+                "targets": [3],
+                "orderable": false
             }
         ],
         fixedHeader: true,
-        scrollX: true//,
-        //responsive: true
+        scrollX: true,
+        responsive: true
     });
 
     dtZipData.on('click', 'tbody tr td button', function () {

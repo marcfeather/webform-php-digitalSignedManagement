@@ -1,16 +1,7 @@
 <?php
-// // CHANGE THE UPLOAD LIMITS
-// ini_set('upload_max_filesize', '5120M');
-// ini_set('post_max_size', '5120M');
-// ini_set('memory_limit', '5120M');
-// ini_set('max_file_uploads', '1000');
-// ini_set('max_input_time', 3600);
-// ini_set('max_execution_time', 3600);
-//phpinfo();
-
 $folder_name = "../contents/html/";
 $content_url = "contents/html/";
-$fileType = ".zip";
+$fileType = "zip";
 
 if(!empty($_FILES))
 {
@@ -28,9 +19,11 @@ if(!empty($_FILES))
             } 
         }
         
-        $continue = strtolower($name[1]) == 'zip' ? true : false;
+        $continue = strtolower($name[1]) == $fileType ? true : false;
         if(!$continue) {
             $message = "The file you are trying to upload is not a .zip file. Please try again.";
+            header('Location: ../20.php?sms=' . $message);
+            return;
         }
 
         //Check if the directory already exists.
@@ -61,7 +54,8 @@ if(!empty($_FILES))
             }
 
             if ($countDup > 0) {
-                header('Location: ../index.php?id=31&err=1'); 
+                $message = "Duplicate data !";
+                header('Location: ../20.php?sms=' . $message );
                 return;
             }
 
@@ -95,6 +89,6 @@ if(!empty($_FILES))
     }
 }
 
-header('Location: ../index.php?id=31'); 
+header('Location: ../20.php'); 
 
 ?>

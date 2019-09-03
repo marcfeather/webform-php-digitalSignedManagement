@@ -1,6 +1,8 @@
 var id;
 
 $(document).ready(function(){  
+    GetDeviceList();
+
     $('#btnAddDevice').click(function () {
         $("#btnDelDevice").css("display", "none");
         id = '';
@@ -57,13 +59,13 @@ function Init_DataTables_DeviceList(data) {
         data: data,
         bDestroy: true,
         deferRender: true,
-        searching: false,
-        bLengthChange: false,
-        bInfo: false,
-        bPaginate: false,
-        ordering: false,
-        //lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
-        //"order": [[1, "asc"]],
+        //searching: false,
+        //bLengthChange: false,
+        //bInfo: false,
+        //bPaginate: false,
+        //ordering: false,
+        lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+        "order": [[0, "asc"]],
         columns: [
             { width: '5%' },
             { width: '15%' },
@@ -85,11 +87,15 @@ function Init_DataTables_DeviceList(data) {
             {
                 "targets": [5],
                 "className": "text-center"
+            },
+            {
+                "targets": [6],
+                "orderable": false
             }
         ],
         fixedHeader: true,
-        scrollX: true//,
-        //responsive: true
+        scrollX: true,
+        responsive: true
     });
 
     dtDeviceListData.on('click', 'tbody tr td button', function () {
@@ -153,12 +159,17 @@ function DeleteDeviceListData_byId(_id) {
         dataType: "json",
         data:{id:_id},
         success: function (data) {
-            if (data == null) { return; }
-            if (data) {
-                //get data
-                GetDeviceList();
+            if (data == null) { 
+                alert("ajax return null");
+                return;
+            }
+            if (data.result) {
                 //close modal
                 $('#deviceDetailModal').modal('toggle');
+                //get data
+                GetDeviceList();
+            }else {
+                alert(data.error);
             }
         }
     });
@@ -198,23 +209,24 @@ function DeviceSave(_id) {
     var _deviceImei = $('#inpDeviceImei').val();
     var _deviceGroupId = $('#ddlDeviceGroup').val();
 
-    // alert(_id);
-    // alert(_deviceName);
-    // alert(_deviceImei);
-    // alert(_deviceGroupId);
-
     if (_id != '') {
         $.ajax({
             url: "controllers/device_add_up_data.php",
             type: "POST",
+            dataType: "json",
             data: { id: _id, deviceName: _deviceName, deviceImei: _deviceImei, deviceGroupId: _deviceGroupId },
             success: function (data) {
-                if (!data) { return; }
-                if (data) {
+                if (data == null) { 
+                    alert("ajax return null");
+                    return;
+                }
+                if (data.result) {
+                    //close modal
                     $('#deviceDetailModal').modal('toggle');
+                    //get data
                     GetDeviceList();
                 }else {
-                    alert('Error!');
+                    alert(data.error);
                 }
             }
         });
@@ -223,14 +235,20 @@ function DeviceSave(_id) {
         $.ajax({
             url: "controllers/device_add_up_data.php",
             type: "POST",
+            dataType: "json",
             data: { deviceName: _deviceName, deviceImei: _deviceImei, deviceGroupId: _deviceGroupId },
             success: function (data) {
-                if (!data) { return; }
-                if (data) {
+                if (data == null) { 
+                    alert("ajax return null");
+                    return;
+                }
+                if (data.result) {
+                    //close modal
                     $('#deviceDetailModal').modal('toggle');
+                    //get data
                     GetDeviceList();
                 }else {
-                    alert('Error!');
+                    alert(data.error);
                 }
             }
         });

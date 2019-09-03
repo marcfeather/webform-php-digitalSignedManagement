@@ -15,7 +15,7 @@ if(!empty($_POST['id'])){
             }
         }
         if ($relate_cnt > 0) {
-            $data[] = array("result" => false,
+            $data = array("result" => false,
                             "error" => 'Relation data, Can not delete');
             echo json_encode($data);
             return;
@@ -25,12 +25,12 @@ if(!empty($_POST['id'])){
         $sql = "DELETE FROM device_group WHERE device_group_id = {$_POST['id']} ";
         $conn->query($sql);
 
-        $data[] = array("result" => true,
+        $data = array("result" => true,
                         "error" => '');
         echo json_encode($data);
 
     } catch (Exception $e) {
-        $data[] = array("result" => false,
+        $data = array("result" => false,
                         "error" => $e);
         echo json_encode($data);
     }

@@ -5029,41 +5029,59 @@ if (typeof NProgress != 'undefined') {
 	   
 	$(document).ready(function() {
 				
-		init_sparklines();
-		init_flot_chart();
+		//init_sparklines();
+		//init_flot_chart();
 		init_sidebar();
-		init_wysiwyg();
-		init_InputMask();
-		init_JQVmap();
-		init_cropper();
-		init_knob();
-		init_IonRangeSlider();
-		init_ColorPicker();
-		init_TagsInput();
-		init_parsley();
-		init_daterangepicker();
-		init_daterangepicker_right();
-		init_daterangepicker_single_call();
-		init_daterangepicker_reservation();
-		init_SmartWizard();
-		init_EasyPieChart();
-		init_charts();
-		init_echarts();
-		init_morris_charts();
-		init_skycons();
-		init_select2();
-		init_validator();
-		init_DataTables();
-		init_chart_doughnut();
-		init_gauge();
-		init_PNotify();
-		init_starrr();
-		init_calendar();
-		init_compose();
-		init_CustomNotification();
-		init_autosize();
-		init_autocomplete();
+		// init_wysiwyg();
+		// init_InputMask();
+		// init_JQVmap();
+		// init_cropper();
+		// init_knob();
+		// init_IonRangeSlider();
+		// init_ColorPicker();
+		// init_TagsInput();
+		// init_parsley();
+		// init_daterangepicker();
+		// init_daterangepicker_right();
+		// init_daterangepicker_single_call();
+		// init_daterangepicker_reservation();
+		// init_SmartWizard();
+		// init_EasyPieChart();
+		// init_charts();
+		// init_echarts();
+		// init_morris_charts();
+		// init_skycons();
+		// init_select2();
+		// init_validator();
+		// init_DataTables();
+		// init_chart_doughnut();
+		// init_gauge();
+		// init_PNotify();
+		// init_starrr();
+		// init_calendar();
+		// init_compose();
+		// init_CustomNotification();
+		// init_autosize();
+		// init_autocomplete();
 				
 	});	
+
+//function Go To Top
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () { scrollFunction() };
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        $('#BtnGoToTop').css('display', 'block');
+    } else {
+        $("#BtnGoToTop").css('display', 'none');
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
 	
 
