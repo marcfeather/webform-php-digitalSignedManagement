@@ -1,11 +1,19 @@
 
 $(document).ready(function(){  
-    //detect message
-    if (message != '') {
-        alert(message);
-    }
-
     GetZipList();
+});
+
+$('#btnAddZip').click(function(){
+    $('#zip_file').click();
+});
+
+$("#zip_file").change(function(){
+    if ($("#zip_file").val() == "") {
+        alert("Please Choose Zip File !");
+        return;
+    } 
+    
+    UploadZipFile();
 });
 
 function Init_DataTables_Zip(data) {
@@ -41,16 +49,17 @@ function Init_DataTables_Zip(data) {
         responsive: true
     });
 
-    dtZipData.on('click', 'tbody tr td button', function () {
-        if ($(this).val() == '') { return; }
-        
+    dtZipData.on('click', 'tbody tr td button', function () {      
         var r = confirm("Are you sure!");
-        if (r == true) {
-            id = $(this).val();
-
-            //delete
-            DeleteZipData_byId(id);
+        if (r == false) {
+            return;
         } 
+
+        if ($(this).val() == '') { return; }
+        id = $(this).val();
+
+        //delete
+        DeleteZipData_byId(id);
     });
 }
 
@@ -88,12 +97,41 @@ function DeleteZipData_byId(_id) {
         success: function (data) {
             if (data == null) { return; }
 
-            if (data[0].result) {
-                //get data
-                GetZipList();
+            if (data.result) {
+                //reload page
+                location.reload();
             }else {
-                alert(data[0].error);
+                alert(data.error);
             }
         }
     });
+}
+
+function UploadZipFile() {
+    try {
+        var file_data = $('#zip_file').prop('files')[0];   
+        var form_data = new FormData();                  
+        form_data.append('file', file_data);                       
+        $.ajax({
+            url: 'controllers/zip_upload.php',
+            dataType: "json",
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: form_data,                         
+            type: 'post',
+            success: function(data){
+                 if (data == null) { return; }
+
+                 if (data.result) {
+                    //reload page
+                    location.reload();
+                 }else {
+                     alert(data.error);
+                 }
+            }
+        });
+    } catch (error) {
+        alert("Error!, " + error);
+    }
 }

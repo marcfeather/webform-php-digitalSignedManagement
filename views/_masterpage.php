@@ -74,6 +74,12 @@
         </div> -->
         <!-- /footer content -->
 
+        <!-- modal loading -->
+        <div id="modalLoading">
+            <?php include('_modal_loading.php');?>
+        </div>
+        <!-- /modal loading -->
+
         <button onclick="topFunction()" id="BtnGoToTop" title="Go to top">Top</button>
 
       </div>

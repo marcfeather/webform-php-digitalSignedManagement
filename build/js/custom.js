@@ -5066,6 +5066,20 @@ if (typeof NProgress != 'undefined') {
 				
 	});	
 
+//loading
+$(document).on({
+	ajaxStart: function () {
+		$("#loadMe").modal({
+			backdrop: "static", //remove ability to close modal with click
+			keyboard: false, //remove option to close with keyboard
+			show: true //Display loader!
+		});
+	},
+	ajaxStop: function () {
+		$("#loadMe").modal("hide");
+	}
+});
+
 //function Go To Top
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () { scrollFunction() };

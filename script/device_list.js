@@ -10,7 +10,7 @@ $(document).ready(function(){
         var inputA = $('#inpDeviceName');
         //clear text
         inputA.val('');
-        //delay 0.1 sec and focus text
+        //delay 0.5 sec and focus text
         setTimeout(function () {
             inputA.focus();
         }, 500);
@@ -182,7 +182,10 @@ function GetDeviceGroupData(_value) {
         dataType: "json",
         success: function (data) {
             try {
-                if (data == null) { return; }
+                if (data == null) { 
+                    alert("ajax return null");
+                    return;
+                }
 
                 $('#ddlDeviceGroup').empty();
                 var div_data = "<option value='0'>Please Select</option>";

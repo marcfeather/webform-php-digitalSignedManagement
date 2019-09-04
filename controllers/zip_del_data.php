@@ -15,7 +15,7 @@ if(!empty($_POST['id'])){
             }
         }
         if ($relate_cnt > 0) {
-            $data[] = array("result" => false,
+            $data = array("result" => false,
                             "error" => 'Relation data, Can not delete');
             echo json_encode($data);
             return;
@@ -29,7 +29,7 @@ if(!empty($_POST['id'])){
                 $content_path = $row['contentPath'];
             }
         }else {
-            $data[] = array("result" => false,
+            $data = array("result" => false,
                             "error" => 'Error get file path');
             echo json_encode($data);
             return;
@@ -42,27 +42,13 @@ if(!empty($_POST['id'])){
             $sql = "DELETE FROM contents WHERE content_id = {$_POST['id']} AND content_extension = 'zip' ";
             $conn->query($sql);
 
-            // //re order data from the database
-            // $sql = "SELECT content_id FROM contents WHERE content_extension = 'zip' ORDER BY content_order";
-            // $result = $conn->query($sql);
-            // if ($result->num_rows > 0) {
-            //     //output data of each row
-            //     $rowNum = 0;
-            //     while($row = $result->fetch_assoc()) {
-            //         $rowNum = $rowNum + 1;
-                
-            //         $sql = "UPDATE contents SET content_order = {$rowNum} WHERE content_id = {$row['content_id']} AND content_extension = 'zip' ";
-            //         $conn->query($sql);
-            //     }
-            // }
-
-            $data[] = array("result" => true,
+            $data = array("result" => true,
                             "error" => '');
             echo json_encode($data);
         }
 
     } catch (Exception $e) {
-        $data[] = array("result" => false,
+        $data = array("result" => false,
                         "error" => $e);
         echo json_encode($data);
     }
