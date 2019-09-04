@@ -12,7 +12,7 @@
                 <h2>ข้อมูลรูปแบบ HTML</h2>
 
                 <div class="nav navbar-right panel_toolbox">                    
-                    <input type="file" id="zip_file" style="display: none;">
+                    <input type="file" id="zip_file" accept=".zip" style="display: none;">
                     <button id="btnAddZip" type="button" class="btn btn-dark" style="width:100px; height:40px;">
                         <i class="fa fa-plus-circle"></i>&nbsp;&nbsp;เพิ่ม
                     </button>

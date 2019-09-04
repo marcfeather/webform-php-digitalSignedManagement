@@ -160,7 +160,7 @@ function DeleteDeviceListData_byId(_id) {
         data:{id:_id},
         success: function (data) {
             if (data == null) { 
-                alert("ajax return null");
+                alert("Return Null Value");
                 return;
             }
             if (data.result) {
@@ -183,7 +183,7 @@ function GetDeviceGroupData(_value) {
         success: function (data) {
             try {
                 if (data == null) { 
-                    alert("ajax return null");
+                    alert("Return Null Value");
                     return;
                 }
 
@@ -220,7 +220,7 @@ function DeviceSave(_id) {
             data: { id: _id, deviceName: _deviceName, deviceImei: _deviceImei, deviceGroupId: _deviceGroupId },
             success: function (data) {
                 if (data == null) { 
-                    alert("ajax return null");
+                    alert("Return Null Value");
                     return;
                 }
                 if (data.result) {
@@ -242,7 +242,7 @@ function DeviceSave(_id) {
             data: { deviceName: _deviceName, deviceImei: _deviceImei, deviceGroupId: _deviceGroupId },
             success: function (data) {
                 if (data == null) { 
-                    alert("ajax return null");
+                    alert("Return Null Value");
                     return;
                 }
                 if (data.result) {

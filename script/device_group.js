@@ -132,7 +132,7 @@ function DeleteDeviceGroupData_byId(_id) {
         data:{id:_id},
         success: function (data) {
             if (data == null) { 
-                alert("ajax return null");
+                alert("Return Null Value");
                 return; 
             }
             if (data.result) {
@@ -186,7 +186,7 @@ function DeviceGroupSave(_id) {
             data: { id: _id, groupName: _groupName, contentDataId: _contentDataId},
             success: function (data) {
                 if (data == null) { 
-                    alert("ajax return null");
+                    alert("Return Null Value");
                     return;
                 }
                 if (data.result) {
@@ -206,7 +206,7 @@ function DeviceGroupSave(_id) {
             data: { groupName: _groupName, contentDataId: _contentDataId },
             success: function (data) {
                 if (data == null) { 
-                    alert("ajax return null");
+                    alert("Return Null Value");
                     return;
                 }
                 if (data.result) {

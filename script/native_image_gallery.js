@@ -1,5 +1,7 @@
 
 $(document).ready(function(){  
+
+    list_image();
    
     $(document).on('click', '.remove_image', function(){
         var id = $(this).attr('id');
