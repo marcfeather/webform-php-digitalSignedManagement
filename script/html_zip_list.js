@@ -27,6 +27,33 @@ function Init_DataTables_Zip(data) {
         //bPaginate: false,
         //ordering: false,
         lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+        dom: "Bfrtip",
+        buttons: [
+            {
+                extend: "pageLength",
+                className: "btn-sm"
+            },
+            {
+                extend: "copy",
+                className: "btn-sm"
+            },
+            {
+                extend: "csv",
+                className: "btn-sm"
+            },
+            {
+                extend: "excel",
+                className: "btn-sm"
+            },
+            {
+                extend: "pdfHtml5",
+                className: "btn-sm"
+            },
+            {
+                extend: "print",
+                className: "btn-sm"
+            }
+        ],
         "order": [[0, "asc"]],
         columns: [
             { width: '5%' },

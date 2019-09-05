@@ -1,6 +1,7 @@
 <footer>
     <div class="pull-right">
-        Coretera <a href="http://www.coretera.co.th">coretera</a>
+        <!-- <a href="http://www.coretera.co.th">CORETERA Co., Ltd.</a> -->
+        CORETERA Co.,Ltd.
     </div>
     <div class="clearfix"></div>
 </footer>

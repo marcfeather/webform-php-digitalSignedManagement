@@ -21,6 +21,13 @@
     <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- Datatable -->
     <link href="vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
+    <!-- Animate.css -->
+    <link href="vendors/animate.css/animate.min.css" rel="stylesheet">
     
     <!-- Custom styling plus plugins -->
     <link href="build/css/custom.css" rel="stylesheet">
@@ -30,49 +37,31 @@
     <div class="container body">
       <div class="main_container">
 
-        <div class="col-md-3 left_col menu_fixed">
-          <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="index.php" class="site_title"><i class="fa fa-laptop"></i> <span>ระบบจัดการข้อมูล</span></a>
-            </div>
-
-            <div class="clearfix"></div>
-            <br />
-
-            <!-- sidebar menu -->
-            <div id="sidebar">
-              <?php include('_sidebar.php');?>
-            </div>
-            <!-- /sidebar menu -->
-
-          </div>
+        <!-- page_share and page content -->
+        <div id="page_share">
+            <?php 
+              if (isset($page_share)) {
+                include($page_share);
+              }
+            ?>
         </div>
 
-        <!-- top navigation -->
-        <div class="top_nav">
-          <div class="nav_menu">
-              <nav>
-                  <div class="nav toggle">
-                      <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-                  </div>
-              </nav>
-          </div>
-      </div>
-        <!-- /top navigation -->
-
-        <!-- page content -->
-        <div class="right_col" role="main">
-          <div id="page_content">
-            <?php include($page_content);?>
-          </div>
+        <!-- <div class="right_col" role="main">-->
+        <div id="page_content">
+          <?php 
+            if (isset($page_share)) {
+              echo "<div class='right_col' role='main'> ";
+                if (isset($page_content)) { 
+                  include($page_content); 
+                }
+              echo "</div>";
+              include('_footer.php');
+            }else if (isset($page_content)) {
+              include($page_content);
+            }
+          ?>
         </div>
-        <!-- /page content -->
-
-        <!-- footer content -->
-        <!-- <div id="footer">
-          <?php include('_footer.php');?>
-        </div> -->
-        <!-- /footer content -->
+        <!-- /page_share and page content -->
 
         <!-- modal loading -->
         <div id="modalLoading">
@@ -92,9 +81,25 @@
     <!-- Datatable -->
     <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.js"></script>
+
+    <?php 
+      if (!isset($page_share)) {
+          echo "<script src='script/login.js'></script>";
+      }
+    ?>
 
   </body>
 </html>
