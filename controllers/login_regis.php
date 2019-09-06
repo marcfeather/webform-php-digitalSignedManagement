@@ -11,7 +11,7 @@ if (!empty($_POST['packageId']) && !empty($_POST['phoneNum']) && !empty($_POST['
     try {
         //set data from the database
         $sql = "INSERT INTO users (users_phoneNumber, users_email, users_name, users_pass, users_status_id, users_dateTime, users_package_id) 
-        VALUE ('{$_POST['phoneNum']}', '{$_POST['email']}', '{$_POST['user']}', '{$_POST['pass']}', 0, CURRENT_TIMESTAMP, {$_POST['packageId']}) ";
+        VALUE ('{$_POST['phoneNum']}', '{$_POST['email']}', '{$_POST['user']}', '{$_POST['pass']}', 1, CURRENT_TIMESTAMP, {$_POST['packageId']}) ";
         $conn->query($sql);
 
         //get data from the database
