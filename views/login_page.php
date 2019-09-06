@@ -62,8 +62,16 @@
                 <div>
                     <input type="password" class="form-control" placeholder="Password" required="" />
                 </div> -->
+
+                <div>
+                    <a class="btn btn-default submit" id="btnChoosePrice" data-toggle="modal" data-target=".bs-price-modal-lg" style="margin:5px 5px 5px 5px; width:95%; font-size:14px;">Choose Package</a>
+                </div>
                 <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                    <input type="text" class="form-control has-feedback-left" id="txtPhoneNumRegis" placeholder="Phone Number" maxlength="10">
+                    <input type="text" class="form-control has-feedback-left" id="txtPackageName" placeholder="Choose Package" readonly="readonly">
+                    <span class="fa fa-tags form-control-feedback left" aria-hidden="true"></span>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                    <input type="text" class="form-control has-feedback-left allownumericwithoutdecimal" id="txtPhoneNumRegis" placeholder="Phone Number" maxlength="10">
                     <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
@@ -105,4 +113,10 @@
         </div>
 
     </div>
+</div>
+
+<div id="modal_price">
+    <?php 
+        include("views/price_table.php");
+    ?>
 </div>

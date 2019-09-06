@@ -5,6 +5,10 @@
     header("Location: login.php");
     return;
   }
+  if(!isset($_SESSION['session_package_id'])){
+    header("Location: login.php");
+    return;
+  }
 ?>
 
 <div class="col-md-3 left_col menu_fixed">
@@ -40,6 +44,7 @@
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
+                        <li><a data-toggle="modal" data-target=".bs-price-user-modal-lg"> My Package</a></li>
                         <li>
                             <a href="login.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                         </li>
@@ -51,3 +56,9 @@
   </div>
 </div>
 <!-- /top navigation -->
+
+<div id="modal_price">
+    <?php 
+        include("views/price_table_user.php");
+    ?>
+</div>

@@ -1,4 +1,5 @@
-var panel = 1;
+var _panel = 1;
+var _packageId = 0;
 
 $(document).ready(function(){  
     var body = document.body;
@@ -7,16 +8,20 @@ $(document).ready(function(){
 
     var url = window.location.href; 
     if (url.indexOf("signin") >= 0) {
-        panel = 1;
+        _panel = 1;
     }else if (url.indexOf("signup") >= 0){
-        panel = 2;
+        _panel = 2;
     }
 
     $('#createAccount').click(function () {
-        panel = 2;
+        _panel = 2;
     });
     $('#toRegister').click(function () {
-        panel = 1;
+        _panel = 1;
+    });
+
+    $('#txtPackageName').click(function () {
+        $('#btnChoosePrice').click();
     });
 
     $('#btnLoginSubmit').click(function () {
@@ -35,6 +40,10 @@ $(document).ready(function(){
     });
 
     $('#btnRegisSubmit').click(function () {
+        if ($('#txtPackageName').val() == "") {
+            $('#btnChoosePrice').click();
+            return;
+        }
         if ($('#txtPhoneNumRegis').val() == "") {
             alert("Please Insert Phone Number!");
             $('#txtPhoneNumRegis').focus();
@@ -72,18 +81,47 @@ $(document).ready(function(){
         
         UserRegister();
     });
+
+    $(".allownumericwithoutdecimal").on("keypress keyup blur", function (event) {
+        $(this).val($(this).val().replace(/[^\d].+/, ""));
+        if ((event.which < 48 || event.which > 57)) {
+            event.preventDefault();
+        }
+    });
 });
 
 $(document).keypress(function(event){
     var keycode = (event.keyCode ? event.keyCode : event.which);
     if(keycode == '13'){
-        if (panel == 1) {
+        if (_panel == 1) {
             $('#btnLoginSubmit').click();  
         }else {
             $('#btnRegisSubmit').click();  
         }
     }
 });
+
+function ChoosePakeage(_value) {
+    _packageId = _value;
+    var text;
+    switch(_value) {
+        case 1:
+            text = "ทดลองใช้";
+            break;
+        case 2:
+            text = "แพ็คเกจ A";
+            break;
+        case 3:
+            text = "แพ็คเกจ B";
+            break;
+        case 4:
+            text = "แพ็คเกจ C";
+            break;
+        default:
+            text = "";
+    } 
+    $('#txtPackageName').val(text);
+}
 
 function UserAuthen() {
     var _user = $('#txtUsername').val();
@@ -115,7 +153,7 @@ function UserRegister() {
     $.ajax({
         url: "controllers/login_regis.php",
         type: "POST",
-        data: { phoneNum: _phoneNum, email: _email, user: _user, pass: _pass},
+        data: { packageId: _packageId, phoneNum: _phoneNum, email: _email, user: _user, pass: _pass},
         dataType: "json",
         success: function (data) {
             if (data == null) { return; }
