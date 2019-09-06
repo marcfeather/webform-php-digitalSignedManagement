@@ -36,7 +36,7 @@
           <ul class="nav navbar-nav navbar-right">
                 <li class="">
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <img src="" alt=""><?php echo $_SESSION['session_key']; ?> &nbsp;&nbsp;
+                        <img src="" alt=""><?php echo $_SESSION['session_username']; ?> &nbsp;&nbsp;
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">

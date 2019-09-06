@@ -8,23 +8,32 @@
         <div class="animate form login_form">
             <section class="login_content">
             <form>
-                <h1>LOGIN</h1>
-                <div>
-                <input id="txtUsername" type="text" class="form-control" placeholder="Username" required="" />
+                <h1>Login Form</h1>
+                <!-- <div>
+                    <input id="txtUsername2" type="text" class="form-control" placeholder="Username" maxlength="20" required="" />
                 </div>
                 <div>
-                <input id="txtPassword" type="password" class="form-control" placeholder="Password" required="" />
+                    <input id="txtPassword2" type="password" class="form-control" placeholder="Password" maxlength="20" required="" />
+                </div> -->
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                    <input type="text" class="form-control has-feedback-left" id="txtUsername" placeholder="Username" maxlength="20">                    
+                    <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                 </div>
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                    <input type="password" class="form-control has-feedback-left" id="txtPassword" placeholder="Password" maxlength="20">
+                    <span class="fa fa-key form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
                 <div>
-                <a class="btn btn-default submit" id="btnLoginSubmit">Log in</a>
-                <a class="reset_pass" href="#">Lost your password?</a>
+                    <a class="btn btn-default submit" id="btnLoginSubmit" style="width: 100px; font-size: 14px;">Login</a>
+                    <!-- <a class="reset_pass" href="#">Lost your password?</a> -->
                 </div>
 
                 <div class="clearfix"></div>
 
                 <div class="separator">
-                <p class="change_link">New to site?
-                    <a href="#signup" class="to_register"> Create Account </a>
+                <p class="change_link">
+                    <a id="createAccount" href="#signup" class="to_register"> Create Account </a>
                 </p>
 
                 <div class="clearfix"></div>
@@ -44,24 +53,41 @@
             <section class="login_content">
             <form>
                 <h1>Create Account</h1>
-                <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <!-- <div>
+                    <input type="text" class="form-control" placeholder="Username" required="" />
                 </div>
                 <div>
-                <input type="email" class="form-control" placeholder="Email" required="" />
+                    <input type="email" class="form-control" placeholder="Email" required="" />
                 </div>
                 <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                    <input type="password" class="form-control" placeholder="Password" required="" />
+                </div> -->
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                    <input type="text" class="form-control has-feedback-left" id="txtPhoneNumRegis" placeholder="Phone Number" maxlength="10">
+                    <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                 </div>
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                    <input type="text" class="form-control has-feedback-left" id="txtEmailRegis" placeholder="Email" maxlength="50">
+                    <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                    <input type="text" class="form-control has-feedback-left" id="txtUsernameRegis" placeholder="Username" maxlength="20">
+                    <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                    <input type="password" class="form-control has-feedback-left" id="txtPasswordRegis" placeholder="Password" maxlength="20">
+                    <span class="fa fa-key form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
                 <div>
-                <a class="btn btn-default submit" id="btnRegisSubmit">Submit</a>
+                    <a class="btn btn-default submit" id="btnRegisSubmit" style="width: 100px; font-size: 14px;">Submit</a>
                 </div>
 
                 <div class="clearfix"></div>
 
                 <div class="separator">
                 <p class="change_link">Already a member ?
-                    <a href="#signin" class="to_register"> Log in </a>
+                    <a id="toRegister" href="#signin" class="to_register"> Log in </a>
                 </p>
 
                 <div class="clearfix"></div>
@@ -74,7 +100,9 @@
                 </div>
                 </div>
             </form>
+
             </section>
         </div>
+
     </div>
 </div>
