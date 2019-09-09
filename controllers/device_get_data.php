@@ -1,4 +1,8 @@
 <?php
+include('_session_use.php');
+include('_session_check.php');
+$user_id = $_SESSION['session_key'];
+
 $data = array();
 
 include("../helpers/mysqli_connect.php");
@@ -6,7 +10,7 @@ include("../helpers/mysqli_connect.php");
 if(!empty($_POST['id'])){
     //get data from the database
     $sql = "SELECT device_id, device_imei, device_name, device_status_id, device_datetime, device_group_id 
-    FROM devices WHERE device_id = {$_POST['id']}";
+    FROM devices WHERE device_id = {$_POST['id']} AND device_user_id = $user_id ";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         //output data of each row
@@ -33,6 +37,7 @@ if(!empty($_POST['id'])){
     FROM devices a 
     LEFT JOIN device_group b on b.device_group_id = a.device_group_id
     LEFT JOIN ms_device_status c on c.device_status_id = a.device_status_id
+    WHERE a.device_user_id = $user_id
     ORDER BY a.device_id";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {

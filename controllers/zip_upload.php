@@ -1,4 +1,7 @@
 <?php
+include('_session_use.php');
+include('_session_check.php');
+$user_id = $_SESSION['session_key'];
 
 if(empty($_FILES))
 {
@@ -64,7 +67,7 @@ if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
     include("../helpers/mysqli_connect.php");
 
     //Check dup name
-    $sql = "SELECT count(content_name) as countDup FROM contents WHERE content_name = '$filename'";
+    $sql = "SELECT count(content_name) as countDup FROM contents WHERE content_user_id = $user_id AND content_name = '$filename'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         // output data of each row
@@ -85,8 +88,8 @@ if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
     $content_name = $filename;
     $content_extension = $ext;
 
-    $sql = "INSERT INTO contents (content_name, content_extension, content_url, content_datetime) 
-    VALUES ('$content_name', '$content_extension', '$content_url', CURRENT_TIMESTAMP)";
+    $sql = "INSERT INTO contents (content_name, content_extension, content_url, content_datetime, content_user_id) 
+    VALUES ('$content_name', '$content_extension', '$content_url', CURRENT_TIMESTAMP, $user_id)";
     $conn->query($sql);
 
     $conn->close();

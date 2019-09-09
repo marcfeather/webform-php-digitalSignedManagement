@@ -1,3 +1,5 @@
+<!-- this page is menu id 11 -->
+
 <?php
   $page_share = "views/_sharepage.php";
   $page_content = "views/device_list.php";

@@ -1,10 +1,15 @@
 <?php
+include('_session_use.php');
+include('_session_check.php');
+$user_id = $_SESSION['session_key'];
+
 $data = array();
 
 include("../helpers/mysqli_connect.php");
 
 //get data from the database
-$sql = "SELECT content_id, CONCAT(content_name, '.',content_extension) as contentName, content_datetime FROM contents WHERE content_extension = 'zip' ORDER BY content_id";
+$sql = "SELECT content_id, CONCAT(content_name, '.',content_extension) as contentName, content_datetime FROM contents 
+WHERE content_user_id = $user_id AND content_extension = 'zip' ORDER BY content_id";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     //output data of each row

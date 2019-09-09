@@ -4,17 +4,7 @@ $(document).ready(function(){
     GetDeviceGroupList();
 
     $('#btnAddDeviceGroup').click(function () {
-        $("#btnDelDeviceGroup").css("display", "none");
-        id = '';
-        var inputA = $('#inpGroupName');
-        //clear text
-        inputA.val('');
-        //delay 0.1 sec and focus text
-        setTimeout(function () {
-            inputA.focus();
-        }, 500);
-
-        GetContentDataList(0);
+        CheckPackage();
     });
 
     $('#btnSaveDeviceGroup').click(function () {
@@ -162,6 +152,7 @@ function DeleteDeviceGroupData_byId(_id) {
                 alert("Return Null Value");
                 return; 
             }
+            
             if (data.result) {
                 $('#deviceGroupDetailModal').modal('toggle');
                 GetDeviceGroupList();
@@ -245,4 +236,38 @@ function DeviceGroupSave(_id) {
             }
         });
     }
+}
+
+function CheckPackage() {
+    var _moduleId = 121; //menu id 12 action menu 1
+    $.ajax({
+        url: "controllers/_package_check.php",
+        type: "POST",
+        dataType: "json",
+        data: { moduleId: _moduleId },
+        success: function (data) {
+            if (data == null) { 
+                alert("Return Null Value");
+                return;
+            }
+
+            if (!data) {
+                $('#priceUserModal').modal();
+                return;
+            }
+
+            $("#deviceGroupDetailModal").modal();
+            $("#btnDelDeviceGroup").css("display", "none");
+            id = '';
+            var inputA = $('#inpGroupName');
+            //clear text
+            inputA.val('');
+            //delay 0.1 sec and focus text
+            setTimeout(function () {
+                inputA.focus();
+            }, 500);
+    
+            GetContentDataList(0);
+        }
+    });
 }

@@ -88,6 +88,19 @@ $(document).ready(function(){
             event.preventDefault();
         }
     });
+
+    
+    if (_panel == 1) {
+        $('#txtUsername').val('');
+        $('#txtPassword').val('');
+        $('#txtUsername').focus();
+    }else {
+        $('#txtPackageName').val('');
+        $('#txtPhoneNumRegis').val('');
+        $('#txtEmailRegis').val('');
+        $('#txtUsernameRegis').val('');
+        $('#txtPasswordRegis').val('');
+    }
 });
 
 $(document).keypress(function(event){
@@ -159,6 +172,7 @@ function UserRegister() {
             if (data == null) { return; }
             
             if (data.result) {
+                alert("Register Complete.");
                 window.location = "index.php";
             }else {
                 alert(data.error);

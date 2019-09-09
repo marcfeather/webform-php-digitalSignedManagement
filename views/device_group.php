@@ -13,8 +13,7 @@
                 <h2>กลุ่มอุปกรณ์</h2>
 
                 <div class="nav navbar-right panel_toolbox">
-                    <button id="btnAddDeviceGroup" type="button" class="btn btn-dark" 
-                        style="width:100px; height:40px;" data-toggle="modal" data-target="#deviceGroupDetailModal">
+                    <button id="btnAddDeviceGroup" type="button" class="btn btn-dark" style="width:100px; height:40px;">
                         <i class="fa fa-plus-circle"></i>&nbsp;&nbsp;เพิ่ม
                     </button>
                 </div>
@@ -83,4 +82,10 @@
         </div>
         </div>
     </div>
+</div>
+
+<div id="modal_price">
+    <?php 
+        include("views/price_table_user.php");
+    ?>
 </div>

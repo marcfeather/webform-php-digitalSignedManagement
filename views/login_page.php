@@ -33,7 +33,7 @@
 
                 <div class="separator">
                 <p class="change_link">
-                    <a id="createAccount" href="#signup" class="to_register"> Create Account </a>
+                    <a id="createAccount" href="#signup" class="to_register"> Register Now </a>
                 </p>
 
                 <div class="clearfix"></div>
@@ -52,7 +52,7 @@
         <div id="register" class="animate form registration_form">
             <section class="login_content">
             <form>
-                <h1>Create Account</h1>
+                <h1>Register</h1>
                 <!-- <div>
                     <input type="text" class="form-control" placeholder="Username" required="" />
                 </div>
@@ -64,7 +64,7 @@
                 </div> -->
 
                 <div>
-                    <a class="btn btn-default submit" id="btnChoosePrice" data-toggle="modal" data-target=".bs-price-modal-lg" style="margin:5px 5px 5px 5px; width:95%; font-size:14px;">Choose Package</a>
+                    <a class="btn btn-default submit" id="btnChoosePrice" data-toggle="modal" data-target="#priceModal" style="margin:5px 5px 5px 5px; width:95%; font-size:14px;">Choose Package</a>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                     <input type="text" class="form-control has-feedback-left" id="txtPackageName" placeholder="Choose Package" readonly="readonly">

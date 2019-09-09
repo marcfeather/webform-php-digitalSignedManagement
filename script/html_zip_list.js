@@ -4,7 +4,7 @@ $(document).ready(function(){
 });
 
 $('#btnAddZip').click(function(){
-    $('#zip_file').click();
+    CheckPackage();
 });
 
 $("#zip_file").change(function(){
@@ -161,4 +161,27 @@ function UploadZipFile() {
     } catch (error) {
         alert("Error!, " + error);
     }
+}
+
+function CheckPackage() {
+    var _moduleId = 201; //menu id 20 action menu 1
+    $.ajax({
+        url: "controllers/_package_check.php",
+        type: "POST",
+        dataType: "json",
+        data: { moduleId: _moduleId },
+        success: function (data) {
+            if (data == null) { 
+                alert("Return Null Value");
+                return;
+            }
+
+            if (!data) {
+                $('#priceUserModal').modal();
+                return;
+            }
+            
+            $('#zip_file').click();
+        }
+    });
 }

@@ -1,5 +1,5 @@
 
-<div class="modal fade bs-price-user-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+<div id="priceUserModal" class="modal fade bs-price-user-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
@@ -26,10 +26,9 @@
                                             <div class='pricing_features'>
                                             <ul class='list-unstyled text-left'>
                                                 <li><i class='fa fa-check text-success'></i> ลง apk ได้ <strong> 1 เครื่อง</strong></li>
-                                                <li><i class='fa fa-check text-success'></i> เพิ่มไฟล์ HTML ได้ <strong> 1 ไฟล์</strong></li>
+                                                <li><i class=งfa fa-check text-successง></i> เพิ่มข้อมูลเครื่อง Client ได้ <strong> 1 เครื่อง</strong></li>
                                                 <li><i class='fa fa-check text-success'></i> สร้างกลุ่มของเครื่อง Client ได้ <strong> 1 กลุ่ม</strong></li>
-                                                <li><i class='fa fa-check text-success'></i> <strong>เพิ่ม แก้ไข ลบ</strong> ข้อมูลเครื่อง Client ได้</li>
-                                                <li><i class='fa fa-check text-success'></i> <strong>อัพโหลด</strong> ไฟล์ Html(zip) ได้</li>
+                                                <li><i class='fa fa-check text-success'></i> เพิ่มไฟล์ HTML ได้ <strong> 1 ไฟล์</strong></li>
                                                 <li><i class='fa fa-times text-danger'></i> ให้คำปรึกษา <strong> 24 ชั่วโมง</strong></li>
                                             </ul>
                                             </div>
@@ -54,10 +53,9 @@
                                             <div class='pricing_features'>
                                             <ul class='list-unstyled text-left'>
                                                 <li><i class='fa fa-check text-success'></i> ลง apk ได้ <strong> 10 เครื่อง</strong></li>
-                                                <li><i class='fa fa-check text-success'></i> เพิ่มไฟล์ HTML ได้ <strong> 5 ไฟล์</strong></li>
+                                                <li><i class=งfa fa-check text-successง></i> เพิ่มข้อมูลเครื่อง Client ได้ <strong> 10 เครื่อง</strong></li>
                                                 <li><i class='fa fa-check text-success'></i> สร้างกลุ่มของเครื่อง Client ได้ <strong> 5 กลุ่ม</strong></li>
-                                                <li><i class='fa fa-check text-success'></i> <strong>เพิ่ม แก้ไข ลบ</strong> ข้อมูลเครื่อง Client ได้</li>
-                                                <li><i class='fa fa-check text-success'></i> <strong>อัพโหลด</strong> ไฟล์ Html(zip) ได้</li>
+                                                <li><i class='fa fa-check text-success'></i> เพิ่มไฟล์ HTML ได้ <strong> 5 ไฟล์</strong></li>
                                                 <li><i class='fa fa-check text-success'></i> ให้คำปรึกษา <strong> 24 ชั่วโมง</strong></li>
                                             </ul>
                                             </div>
@@ -87,10 +85,9 @@
                                             <div class='pricing_features'>
                                             <ul class='list-unstyled text-left'>
                                                 <li><i class='fa fa-check text-success'></i> ลง apk ได้ <strong> 50 เครื่อง</strong></li>
-                                                <li><i class='fa fa-check text-success'></i> เพิ่มไฟล์ HTML ได้ <strong> 50 ไฟล์</strong></li>
+                                                <li><i class=งfa fa-check text-successง></i> เพิ่มข้อมูลเครื่อง Client ได้ <strong> 50 เครื่อง</strong></li>
                                                 <li><i class='fa fa-check text-success'></i> สร้างกลุ่มของเครื่อง Client ได้ <strong> 50 กลุ่ม</strong></li>
-                                                <li><i class='fa fa-check text-success'></i> <strong>เพิ่ม แก้ไข ลบ</strong> ข้อมูลเครื่อง Client ได้</li>
-                                                <li><i class='fa fa-check text-success'></i> <strong>อัพโหลด</strong> ไฟล์ Html(zip) ได้</li>
+                                                <li><i class='fa fa-check text-success'></i> เพิ่มไฟล์ HTML ได้ <strong> 50 ไฟล์</strong></li>
                                                 <li><i class='fa fa-check text-success'></i> ให้คำปรึกษา <strong> 24 ชั่วโมง</strong></li>
                                             </ul>
                                             </div>
@@ -115,10 +112,9 @@
                                             <div class='pricing_features'>
                                             <ul class='list-unstyled text-left'>
                                                 <li><i class='fa fa-check text-success'></i> ลง apk ได้ <strong> 100 เครื่อง</strong></li>
-                                                <li><i class='fa fa-check text-success'></i> เพิ่มไฟล์ HTML ได้ <strong> 100 ไฟล์</strong></li>
+                                                <li><i class=งfa fa-check text-successง></i> เพิ่มข้อมูลเครื่อง Client ได้ <strong> 100 เครื่อง</strong></li>
                                                 <li><i class='fa fa-check text-success'></i> สร้างกลุ่มของเครื่อง Client ได้ <strong> 100 กลุ่ม</strong></li>
-                                                <li><i class='fa fa-check text-success'></i> <strong>เพิ่ม แก้ไข ลบ</strong> ข้อมูลเครื่อง Client ได้</li>
-                                                <li><i class='fa fa-check text-success'></i> <strong>อัพโหลด</strong> ไฟล์ Html(zip) ได้</li>
+                                                <li><i class='fa fa-check text-success'></i> เพิ่มไฟล์ HTML ได้ <strong> 100 ไฟล์</strong></li>
                                                 <li><i class='fa fa-check text-success'></i> ให้คำปรึกษา <strong> 24 ชั่วโมง</strong></li>
                                             </ul>
                                             </div>

@@ -1,4 +1,8 @@
 <?php
+include('_session_use.php');
+include('_session_check.php');
+$user_id = $_SESSION['session_key'];
+
 $data = array();
 
 include("../helpers/mysqli_connect.php");
@@ -6,7 +10,7 @@ include("../helpers/mysqli_connect.php");
 if(!empty($_POST['id'])){
     try {
         //check relation data
-        $sql = "SELECT COUNT(device_group_content_id) as cnt FROM device_group WHERE device_group_content_id = {$_POST['id']} ";
+        $sql = "SELECT COUNT(device_group_content_id) as cnt FROM device_group WHERE device_group_content_id = {$_POST['id']} AND device_group_user_id = $user_id ";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             //output data of each row
@@ -21,7 +25,8 @@ if(!empty($_POST['id'])){
             return;
         }
 
-        $sql = "SELECT CONCAT(content_url, content_name, '.',content_extension) as contentPath FROM contents WHERE content_id = {$_POST['id']} AND content_extension = 'zip' ";
+        $sql = "SELECT CONCAT(content_url, content_name, '.',content_extension) as contentPath FROM contents 
+        WHERE content_id = {$_POST['id']} AND content_extension = 'zip' AND content_user_id = $user_id ";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             //output data of each row
@@ -39,7 +44,7 @@ if(!empty($_POST['id'])){
         if($flgDelete)
         {
             //del data from the database
-            $sql = "DELETE FROM contents WHERE content_id = {$_POST['id']} AND content_extension = 'zip' ";
+            $sql = "DELETE FROM contents WHERE content_id = {$_POST['id']} AND content_extension = 'zip' AND content_user_id = $user_id";
             $conn->query($sql);
 
             $data = array("result" => true,

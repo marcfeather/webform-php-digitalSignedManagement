@@ -1,14 +1,6 @@
 <?php 
-  if (session_status() == PHP_SESSION_NONE) { session_start();}
-  
-  if(!isset($_SESSION['session_key'])){
-    header("Location: login.php");
-    return;
-  }
-  if(!isset($_SESSION['session_package_id'])){
-    header("Location: login.php");
-    return;
-  }
+  include('controllers/_session_use.php');
+  include('controllers/_session_check.php');
 ?>
 
 <div class="col-md-3 left_col menu_fixed">
@@ -44,7 +36,7 @@
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
-                        <li><a data-toggle="modal" data-target=".bs-price-user-modal-lg"> My Package</a></li>
+                        <li><a data-toggle="modal" data-target="#priceUserModal"> My Package</a></li>
                         <li>
                             <a href="login.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                         </li>

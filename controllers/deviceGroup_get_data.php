@@ -1,11 +1,16 @@
 <?php
+include('_session_use.php');
+include('_session_check.php');
+$user_id = $_SESSION['session_key'];
+
 $data = array();
 
 include("../helpers/mysqli_connect.php");
 
 if(!empty($_POST['id'])){
     //get data from the database
-    $sql = "SELECT device_group_id, device_group_name, device_group_content_id FROM device_group WHERE device_group_id = {$_POST['id']}";
+    $sql = "SELECT device_group_id, device_group_name, device_group_content_id FROM device_group 
+    WHERE device_group_id = {$_POST['id']} AND device_group_user_id = $user_id ";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         //output data of each row
@@ -22,7 +27,9 @@ if(!empty($_POST['id'])){
 
 }else {
     //get data from the database
-    $sql = "SELECT a.device_group_id, a.device_group_name, CONCAT(b.content_name, '.', b.content_extension) as contentName FROM device_group a LEFT JOIN contents b on b.content_id = a.device_group_content_id ORDER BY a.device_group_id";
+    $sql = "SELECT a.device_group_id, a.device_group_name, CONCAT(b.content_name, '.', b.content_extension) as contentName 
+    FROM device_group a LEFT JOIN contents b on b.content_id = a.device_group_content_id 
+    WHERE a.device_group_user_id = $user_id ORDER BY a.device_group_id";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         //output data of each row

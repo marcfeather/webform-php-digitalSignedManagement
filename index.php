@@ -1,10 +1,7 @@
 <?php
-  if (session_status() == PHP_SESSION_NONE) { session_start();}
+  include('controllers/_session_use.php');
+  include('controllers/_session_check.php');
 
-  if(!isset($_SESSION['session_key'])){
-    include("login.php");
-
-  }else {
-    include("11.php");
-  }
+  //default page
+  include("11.php");
 ?>

@@ -4,18 +4,7 @@ $(document).ready(function(){
     GetDeviceList();
 
     $('#btnAddDevice').click(function () {
-        $("#btnDelDevice").css("display", "none");
-        id = '';
-        $('#inpDeviceImei').val('');
-        var inputA = $('#inpDeviceName');
-        //clear text
-        inputA.val('');
-        //delay 0.5 sec and focus text
-        setTimeout(function () {
-            inputA.focus();
-        }, 500);
-
-        GetDeviceGroupData(0);
+        CheckPackage();
     });
 
     $('#btnSaveDevice').click(function () {
@@ -283,4 +272,39 @@ function DeviceSave(_id) {
             }
         });
     }
+}
+
+function CheckPackage() {
+    var _moduleId = 111; //menu id 11 action menu 1
+    $.ajax({
+        url: "controllers/_package_check.php",
+        type: "POST",
+        dataType: "json",
+        data: { moduleId: _moduleId },
+        success: function (data) {
+            if (data == null) { 
+                alert("Return Null Value");
+                return;
+            }
+
+            if (!data) {
+                $('#priceUserModal').modal();
+                return;
+            }
+
+            $("#deviceDetailModal").modal();
+            $("#btnDelDevice").css("display", "none");
+            id = '';
+            $('#inpDeviceImei').val('');
+            var inputA = $('#inpDeviceName');
+            //clear text
+            inputA.val('');
+            //delay 0.5 sec and focus text
+            setTimeout(function () {
+                inputA.focus();
+            }, 500);
+    
+            GetDeviceGroupData(0);
+        }
+    });
 }

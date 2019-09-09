@@ -1,4 +1,8 @@
 <?php
+include('_session_use.php');
+include('_session_check.php');
+$user_id = $_SESSION['session_key'];
+
 $data = array();
 
 include("../helpers/mysqli_connect.php");
@@ -6,7 +10,8 @@ include("../helpers/mysqli_connect.php");
 if(!empty($_POST['id'])){
     try {
         //set data from the database
-        $sql = "UPDATE device_group SET device_group_name = '{$_POST['groupName']}', device_group_content_id = {$_POST['contentDataId']} WHERE device_group_id = {$_POST['id']} ";
+        $sql = "UPDATE device_group SET device_group_name = '{$_POST['groupName']}', device_group_content_id = {$_POST['contentDataId']} 
+        WHERE device_group_id = {$_POST['id']} AND device_group_user_id = $user_id ";
         $conn->query($sql);
 
         $data = array("result" => true,
@@ -21,7 +26,7 @@ if(!empty($_POST['id'])){
 }else {
     try {
         //check duplicate data
-        $sql = "SELECT COUNT(device_group_id) as cnt FROM device_group WHERE device_group_name = '{$_POST['groupName']}' ";
+        $sql = "SELECT COUNT(device_group_id) as cnt FROM device_group WHERE device_group_user_id = $user_id AND device_group_name = '{$_POST['groupName']}' ";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             //output data of each row
@@ -37,7 +42,8 @@ if(!empty($_POST['id'])){
         }
 
         //set data from the database
-        $sql = "INSERT INTO device_group (device_group_name, device_group_content_id) VALUE ('{$_POST['groupName']}', {$_POST['contentDataId']}) ";
+        $sql = "INSERT INTO device_group (device_group_name, device_group_content_id, device_group_user_id) 
+        VALUE ('{$_POST['groupName']}', {$_POST['contentDataId']}, $user_id)";
         $conn->query($sql);
 
         $data = array("result" => true,

@@ -1,4 +1,8 @@
 <?php
+include('_session_use.php');
+include('_session_check.php');
+$user_id = $_SESSION['session_key'];
+
 $data = array();
 
 include("../helpers/mysqli_connect.php");
@@ -6,7 +10,7 @@ include("../helpers/mysqli_connect.php");
 if(!empty($_POST['id'])){
     try {
         //check relation data
-        $sql = "SELECT COUNT(device_group_id) as cnt FROM devices WHERE device_group_id = {$_POST['id']} ";
+        $sql = "SELECT COUNT(device_group_id) as cnt FROM devices WHERE device_group_id = {$_POST['id']} AND device_user_id = $user_id ";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             //output data of each row
@@ -14,6 +18,7 @@ if(!empty($_POST['id'])){
                 $relate_cnt = $row['cnt'];
             }
         }
+    
         if ($relate_cnt > 0) {
             $data = array("result" => false,
                             "error" => 'Relation data, Can not delete');
@@ -22,7 +27,7 @@ if(!empty($_POST['id'])){
         }
 
         //del data from the database
-        $sql = "DELETE FROM device_group WHERE device_group_id = {$_POST['id']} ";
+        $sql = "DELETE FROM device_group WHERE device_group_id = {$_POST['id']} AND device_group_user_id = $user_id ";
         $conn->query($sql);
 
         $data = array("result" => true,

@@ -38,3 +38,9 @@
         </div>
     </div>
 </div>
+
+<div id="modal_price">
+    <?php 
+        include("views/price_table_user.php");
+    ?>
+</div>
