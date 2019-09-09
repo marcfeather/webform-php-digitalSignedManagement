@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 06, 2019 at 12:16 PM
+-- Generation Time: Sep 09, 2019 at 12:20 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -31,15 +31,9 @@ CREATE TABLE `contents` (
   `content_name` varchar(500) COLLATE utf8_thai_520_w2 NOT NULL,
   `content_extension` varchar(10) COLLATE utf8_thai_520_w2 NOT NULL,
   `content_url` varchar(500) COLLATE utf8_thai_520_w2 NOT NULL,
-  `content_datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `content_datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `content_user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_thai_520_w2;
-
---
--- Dumping data for table `contents`
---
-
-INSERT INTO `contents` (`content_id`, `content_name`, `content_extension`, `content_url`, `content_datetime`) VALUES
-(1, 'html_simple', 'zip', 'contents/html/', '2019-09-05 10:43:20');
 
 -- --------------------------------------------------------
 
@@ -53,15 +47,9 @@ CREATE TABLE `devices` (
   `device_imei` varchar(15) COLLATE utf8_thai_520_w2 NOT NULL,
   `device_status_id` int(1) NOT NULL,
   `device_datetime` datetime NOT NULL,
-  `device_group_id` int(2) NOT NULL
+  `device_group_id` int(2) NOT NULL,
+  `device_user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_thai_520_w2;
-
---
--- Dumping data for table `devices`
---
-
-INSERT INTO `devices` (`device_id`, `device_name`, `device_imei`, `device_status_id`, `device_datetime`, `device_group_id`) VALUES
-(1, 'test', '123', 0, '2019-09-05 10:43:40', 1);
 
 -- --------------------------------------------------------
 
@@ -72,15 +60,9 @@ INSERT INTO `devices` (`device_id`, `device_name`, `device_imei`, `device_status
 CREATE TABLE `device_group` (
   `device_group_id` int(2) NOT NULL,
   `device_group_name` varchar(50) COLLATE utf8_thai_520_w2 NOT NULL,
-  `device_group_content_id` int(1) NOT NULL
+  `device_group_content_id` int(1) NOT NULL,
+  `device_group_user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_thai_520_w2;
-
---
--- Dumping data for table `device_group`
---
-
-INSERT INTO `device_group` (`device_group_id`, `device_group_name`, `device_group_content_id`) VALUES
-(1, 'A', 1);
 
 -- --------------------------------------------------------
 
@@ -153,22 +135,22 @@ INSERT INTO `permissions` (`permission_id`, `add_client`, `add_group`, `add_html
 --
 
 CREATE TABLE `users` (
-  `users_id` int(11) NOT NULL,
-  `users_phoneNumber` varchar(10) COLLATE utf8_thai_520_w2 NOT NULL,
-  `users_email` varchar(50) COLLATE utf8_thai_520_w2 NOT NULL,
-  `users_name` varchar(20) COLLATE utf8_thai_520_w2 NOT NULL,
-  `users_pass` varchar(20) COLLATE utf8_thai_520_w2 NOT NULL,
-  `users_status_id` int(1) NOT NULL,
-  `users_dateTime` datetime NOT NULL,
-  `users_package_id` int(2) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `user_phoneNumber` varchar(10) COLLATE utf8_thai_520_w2 NOT NULL,
+  `user_email` varchar(50) COLLATE utf8_thai_520_w2 NOT NULL,
+  `user_name` varchar(20) COLLATE utf8_thai_520_w2 NOT NULL,
+  `user_pass` varchar(20) COLLATE utf8_thai_520_w2 NOT NULL,
+  `user_status_id` int(1) NOT NULL,
+  `user_dateTime` datetime NOT NULL,
+  `user_package_id` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_thai_520_w2;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`users_id`, `users_phoneNumber`, `users_email`, `users_name`, `users_pass`, `users_status_id`, `users_dateTime`, `users_package_id`) VALUES
-(2, '0501234567', 'test@test.com', 'admin', 'inmad', 0, '2019-09-06 13:41:57', 1);
+INSERT INTO `users` (`user_id`, `user_phoneNumber`, `user_email`, `user_name`, `user_pass`, `user_status_id`, `user_dateTime`, `user_package_id`) VALUES
+(4, '0501234567', 'test@test.com', 'admin', 'inmad', 1, '2019-09-09 15:20:17', 1);
 
 --
 -- Indexes for dumped tables
@@ -214,7 +196,7 @@ ALTER TABLE `permissions`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`users_id`);
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -224,7 +206,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `contents`
 --
 ALTER TABLE `contents`
-  MODIFY `content_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `content_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `devices`
 --
@@ -234,12 +216,12 @@ ALTER TABLE `devices`
 -- AUTO_INCREMENT for table `device_group`
 --
 ALTER TABLE `device_group`
-  MODIFY `device_group_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `device_group_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `users_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
