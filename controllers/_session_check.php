@@ -6,5 +6,13 @@ if(!isset($_SESSION['session_key'])){
 if(!isset($_SESSION['session_package_id'])){
     header("Location: login.php");
     return;
-  }
+}
+if(!isset($_SESSION['session_expire_date'])){
+  header("Location: login.php");
+  return;
+}
+if(!isset($_SESSION['session_countdown_date'])){
+  header("Location: login.php");
+  return;
+}
 ?>

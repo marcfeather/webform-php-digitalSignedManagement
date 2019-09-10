@@ -29,20 +29,28 @@
               <a id="menu_toggle"><i class="fa fa-bars"></i></a>
           </div>
 
+          <?php
+            if ($_SESSION['session_package_id'] == 1) {
+              echo '<div style="float: left; margin: 0; padding-top: 16px; width: 400px; color: red; font-size: 16px">
+              <p>ใช้งานได้ถึงวันที่ ' . $_SESSION['session_expire_date'] . ' คงเหลือ '. $_SESSION['session_countdown_date'] . '</p>
+              </div>';
+            }
+          ?>
+
           <ul class="nav navbar-nav navbar-right">
-                <li class="">
-                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <img src="" alt=""><?php echo $_SESSION['session_username']; ?> &nbsp;&nbsp;
-                        <span class=" fa fa-angle-down"></span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-usermenu pull-right">
-                        <li><a data-toggle="modal" data-target="#priceUserModal"> My Package</a></li>
-                        <li>
-                            <a href="login.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+              <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                      <img src="" alt=""><?php echo $_SESSION['session_username']; ?> &nbsp;&nbsp;
+                      <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                      <li><a data-toggle="modal" data-target="#priceUserModal"> My Package</a></li>
+                      <li>
+                          <a href="login.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                      </li>
+                  </ul>
+              </li>
+          </ul>
           
       </nav>
   </div>

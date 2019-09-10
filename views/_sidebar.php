@@ -11,6 +11,8 @@
             </li>
             <li id="menu20"><a href="20.php"><i class="fa fa-html5"></i>ข้อมูลรูปแบบ HTML</span></a>
             </li>
+            <li id="menu30"><a href="30.php"><i class="fa fa-download"></i>ดาวน์โหลด</span></a>
+            </li>
         </ul>
     </div>
 
