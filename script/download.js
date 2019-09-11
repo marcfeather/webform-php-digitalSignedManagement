@@ -5,6 +5,9 @@ $(document).ready(function(){
     var server = 'www.dsm.coretera.co.th';
     var full_path = server + '/' + local_path;
 
+    $('#inpDownloadPath').val(full_path);
+    $('#inpDownloadPath').attr('readonly', true);
+
     jQuery("#qrCodeApk").qrcode({
         width: 300,
         height: 300,
