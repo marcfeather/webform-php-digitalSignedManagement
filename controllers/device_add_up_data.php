@@ -38,7 +38,7 @@ if(!empty($_POST['id'])){
         }
         if ($relate_cnt > 0) {
             $data = array("result" => false,
-                            "error" => "Duplicate data, Can not insert");
+                            "error" => "ไม่สามารถเพิ่มข้อมูลได้ เนื่องจากชื่ออุปกรณ์ หรือหมายเลข IMEI ซ้ำ !");
             echo json_encode($data);
             return;
         }

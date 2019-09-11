@@ -41,7 +41,7 @@
 
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12">
-                                            เลือกไฟล์ HTML(zip)<span class="required">*</span>
+                                            ไฟล์ HTML(zip)<span class="required">*</span>
                                         </label>
                                         <div class="col-md-9 col-sm-9 col-xs-12">
                                             <select id="ddlContentData" class="form-control"></select>

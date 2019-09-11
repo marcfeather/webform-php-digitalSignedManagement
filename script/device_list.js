@@ -17,12 +17,16 @@ $(document).ready(function(){
         if (inputB.val() == '') {
             inputB.focus();
             return;
-        }
-        var inputC = $('#ddlDeviceGroup');
-        if (inputC.val() == '0') {
-            inputC.focus();
+        }else if (inputB.val().length < 15) {
+            alert('หมายเลข IMEI ไม่ครบ 15 หลัก');
+            inputB.focus();
             return;
         }
+        // var inputC = $('#ddlDeviceGroup');
+        // if (inputC.val() == '0') {
+        //     inputC.focus();
+        //     return;
+        // }
         
         DeviceSave(id);
     });
