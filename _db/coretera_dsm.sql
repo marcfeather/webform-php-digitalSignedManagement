@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2019 at 12:20 PM
+-- Generation Time: Sep 11, 2019 at 06:56 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -51,6 +51,13 @@ CREATE TABLE `devices` (
   `device_user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_thai_520_w2;
 
+--
+-- Dumping data for table `devices`
+--
+
+INSERT INTO `devices` (`device_id`, `device_name`, `device_imei`, `device_status_id`, `device_datetime`, `device_group_id`, `device_user_id`) VALUES
+(1, 'test', '555555555555555', 0, '2019-09-10 16:31:31', 0, 8);
+
 -- --------------------------------------------------------
 
 --
@@ -80,8 +87,27 @@ CREATE TABLE `ms_device_status` (
 --
 
 INSERT INTO `ms_device_status` (`device_status_id`, `device_status_name`) VALUES
-(0, 'pending'),
-(1, 'active');
+(0, 'ยังไม่ใช้งาน'),
+(1, 'ใช้งาน');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ms_user_status`
+--
+
+CREATE TABLE `ms_user_status` (
+  `user_status_id` int(11) NOT NULL,
+  `user_status_name` varchar(50) COLLATE utf8_thai_520_w2 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_thai_520_w2;
+
+--
+-- Dumping data for table `ms_user_status`
+--
+
+INSERT INTO `ms_user_status` (`user_status_id`, `user_status_name`) VALUES
+(0, 'รอการอนุมัติ'),
+(1, 'อนุมัติ');
 
 -- --------------------------------------------------------
 
@@ -142,15 +168,19 @@ CREATE TABLE `users` (
   `user_pass` varchar(20) COLLATE utf8_thai_520_w2 NOT NULL,
   `user_status_id` int(1) NOT NULL,
   `user_dateTime` datetime NOT NULL,
-  `user_package_id` int(2) NOT NULL
+  `user_package_id` int(2) NOT NULL,
+  `user_expire_date` datetime NOT NULL,
+  `user_loginDateTime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_thai_520_w2;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `user_phoneNumber`, `user_email`, `user_name`, `user_pass`, `user_status_id`, `user_dateTime`, `user_package_id`) VALUES
-(4, '0501234567', 'test@test.com', 'admin', 'inmad', 1, '2019-09-09 15:20:17', 1);
+INSERT INTO `users` (`user_id`, `user_phoneNumber`, `user_email`, `user_name`, `user_pass`, `user_status_id`, `user_dateTime`, `user_package_id`, `user_expire_date`, `user_loginDateTime`) VALUES
+(6, '0501234567', 'test@test.com', 'admin2', 'admin2', 1, '2019-09-10 10:41:15', 1, '2019-09-10 11:00:00', '2019-09-10 16:12:42'),
+(8, '0501234567', 'test@test.com', 'admin', 'admin', 1, '2019-09-10 11:51:46', 2, '2019-10-10 11:51:46', '2019-09-11 11:50:45'),
+(10, '0501234567', 'test@test.com', 'admin3', 'admin3', 1, '2019-09-10 13:34:57', 2, '0000-00-00 00:00:00', '2019-09-10 13:37:26');
 
 --
 -- Indexes for dumped tables
@@ -181,6 +211,12 @@ ALTER TABLE `ms_device_status`
   ADD PRIMARY KEY (`device_status_id`);
 
 --
+-- Indexes for table `ms_user_status`
+--
+ALTER TABLE `ms_user_status`
+  ADD PRIMARY KEY (`user_status_id`);
+
+--
 -- Indexes for table `packages`
 --
 ALTER TABLE `packages`
@@ -206,22 +242,22 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `contents`
 --
 ALTER TABLE `contents`
-  MODIFY `content_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `content_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `devices`
 --
 ALTER TABLE `devices`
-  MODIFY `device_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `device_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `device_group`
 --
 ALTER TABLE `device_group`
-  MODIFY `device_group_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `device_group_id` int(2) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
