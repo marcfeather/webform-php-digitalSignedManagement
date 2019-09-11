@@ -9,7 +9,7 @@ $('#btnAddZip').click(function(){
 
 $("#zip_file").change(function(){
     if ($("#zip_file").val() == "") {
-        alert("Please Choose Zip File !");
+        alert("กรุณาเลือกไฟล์ .zip !");
         return;
     } 
     
@@ -77,7 +77,7 @@ function Init_DataTables_Zip(data) {
     });
 
     dtZipData.on('click', 'tbody tr td button', function () {      
-        var r = confirm("Are you sure!");
+        var r = confirm("กรุณายืนยันการลบข้อมูล");
         if (r == false) {
             return;
         } 
@@ -106,7 +106,7 @@ function GetZipList() {
                     data[i].content_datetime,
                     '<div style="text-align:center;"><button type="button" class="btn btn-danger btn-xs" value="' + data[i].content_id + '">'
                     + ' <span class="glyphicon glyphicon-trash" style="margin-right:5px" aria-hidden="true">'
-                    + ' </span>Delete</button></div>'
+                    + ' </span>ลบ</button></div>'
                 ]);
             }
 

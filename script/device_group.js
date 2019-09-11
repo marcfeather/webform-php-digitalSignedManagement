@@ -15,6 +15,7 @@ $(document).ready(function(){
         }
         var inputB = $('#ddlContentData');
         if (inputB.val() == '0') {
+            alert('กรุณาเลือกไฟล์ HTML(zip)');
             inputB.focus();
             return;
         }
@@ -23,11 +24,16 @@ $(document).ready(function(){
     });
 
     $('#btnDelDeviceGroup').click(function () {
-        var r = confirm("Are you sure !");
+        var r = confirm("กรุณายืนยันการลบข้อมูล");
         if (r == true) {
             //delete
             DeleteDeviceGroupData_byId(id);
         }
+    });
+
+    $('#btnAddZipDirect').click(function () {
+        $('#deviceGroupDetailModal').modal('toggle');
+        window.location = "20.php";
     });
 });
 
@@ -117,7 +123,7 @@ function GetDeviceGroupList() {
                     '<div style="text-align:center;"><button type="button" class="btn btn-warning btn-xs"'
                     + ' data-toggle="modal" data-target="#deviceGroupDetailModal" id="getEdit" value="' + data[i].device_group_id + '">'
                     + ' <span class="glyphicon glyphicon-pencil" style="margin-right:5px" aria-hidden="true">'
-                    + ' </span>Edit</button></div>'
+                    + ' </span>แก้ไข</button></div>'
                 ]);
             }
 

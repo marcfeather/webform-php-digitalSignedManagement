@@ -9,7 +9,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>ข้อมูลรูปแบบ HTML</h2>
+                <h2>ไฟล์ HTML(zip)</h2>
 
                 <div class="nav navbar-right panel_toolbox">                    
                     <input type="file" id="zip_file" accept=".zip" style="display: none;">
@@ -25,10 +25,10 @@
                 <table id="datatable-zipList" class="table table-striped table-bordered" cellspacing="0" style="width: 100%">
                     <thead>
                         <tr>
-                            <th class="text-center" style="width: 5%">NO</th>
-                            <th class="text-left" style="width: 50%">Name</th>
-                            <th class="text-left" style="width: 35%">DateTime</th>
-                            <th class="text-center" style="width: 10%">Action</th>
+                            <th class="text-center" style="width: 5%">ลำดับ</th>
+                            <th class="text-left" style="width: 50%">ชื่อไฟล์ HTML(zip)</th>
+                            <th class="text-left" style="width: 35%">วันเวลาที่เพิ่ม</th>
+                            <th class="text-center" style="width: 10%">ลบ</th>
                         </tr>
                     </thead>
                 </table>

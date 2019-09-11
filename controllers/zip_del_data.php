@@ -20,7 +20,7 @@ if(!empty($_POST['id'])){
         }
         if ($relate_cnt > 0) {
             $data = array("result" => false,
-                            "error" => 'Relation data, Can not delete');
+                            "error" => 'ไม่สามารถลบได้ เนื่องจากมีการใช้งาน ไฟล์ข้อมูลนี้ กับ ข้อมูลที่แสดงผล');
             echo json_encode($data);
             return;
         }

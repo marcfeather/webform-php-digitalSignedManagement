@@ -44,9 +44,9 @@
                       <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                      <li><a data-toggle="modal" data-target="#priceUserModal"> My Package</a></li>
+                      <li><a data-toggle="modal" data-target="#priceUserModal"> ข้อมูลแพ็คเกจ</a></li>
                       <li>
-                          <a href="login.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                          <a href="login.php"><i class="fa fa-sign-out pull-right"></i> ออกจากระบบ</a>
                       </li>
                   </ul>
               </li>

@@ -28,7 +28,7 @@ $(document).ready(function(){
     });
 
     $('#btnDelDevice').click(function () {
-        var r = confirm("Are you sure !");
+        var r = confirm("กรุณายืนยันการลบข้อมูล");
         if (r == true) {
             //delete
             DeleteDeviceListData_byId(id);
@@ -84,9 +84,9 @@ function Init_DataTables_DeviceList(data) {
         "order": [[0, "asc"]],
         columns: [
             { width: '5%' },
-            { width: '15%' },
             { width: '25%' },
             { width: '20%' },
+            { width: '15%' },
             { width: '10%' },
             { width: '15%' },
             { width: '10%' }
@@ -135,15 +135,15 @@ function GetDeviceList() {
             for (i = 0; i < data.length; i++) {
                 dataReturn.push([
                     data[i].rowNum,
-                    data[i].device_group_name,
                     data[i].device_name,
                     data[i].device_imei,
+                    data[i].device_group_name,
                     data[i].device_status_name,
                     data[i].device_datetime,
                     '<div style="text-align:center;"><button type="button" class="btn btn-warning btn-xs"'
                     + ' data-toggle="modal" data-target="#deviceDetailModal" id="getEdit" value="' + data[i].device_id + '">'
                     + ' <span class="glyphicon glyphicon-pencil" style="margin-right:5px" aria-hidden="true">'
-                    + ' </span>Edit</button></div>'
+                    + ' </span>แก้ไข</button></div>'
                 ]);
             }
 
@@ -162,6 +162,7 @@ function GetDeviceList_byId(_id) {
             if (data == null) { return; }
             $('#inpDeviceName').val(data[0].device_name);
             $('#inpDeviceImei').val(data[0].device_imei);
+            $("#inpDeviceImei").prop('disabled', true);
 
             GetDeviceGroupData(data[0].device_group_id);
         }
@@ -296,6 +297,7 @@ function CheckPackage() {
             $("#btnDelDevice").css("display", "none");
             id = '';
             $('#inpDeviceImei').val('');
+            $("#inpDeviceImei").prop('disabled', false);
             var inputA = $('#inpDeviceName');
             //clear text
             inputA.val('');

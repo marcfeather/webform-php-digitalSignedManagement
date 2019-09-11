@@ -5,7 +5,7 @@
             <div class="modal-body text-center">
                 <div class="loader"></div>
                 <div clas="loader-txt">
-                    <p>Please wait<br><br><small>Loading..</small></p>
+                    <p>กรุณารอสักครู่<br><br><small>กำลังโหลด..</small></p>
                 </div>
             </div>
         </div>

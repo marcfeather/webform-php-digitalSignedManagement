@@ -25,9 +25,8 @@
                                         <div class="">
                                             <div class="pricing_features">
                                             <ul class="list-unstyled text-left">
-                                                <li><i class="fa fa-check text-success"></i> ใช้ระบบ Client(android) ได้ <strong> 1 เครื่อง</strong></li>
-                                                <li><i class="fa fa-check text-success"></i> เพิ่มข้อมูลเครื่อง Client ได้ <strong> 1 เครื่อง</strong></li>
-                                                <li><i class="fa fa-check text-success"></i> สร้างกลุ่มของเครื่อง Client ได้ <strong> 1 กลุ่ม</strong></li>
+                                                <li><i class="fa fa-check text-success"></i> เพิ่มข้อมูลเครื่อง Client(android) ได้ <strong> 1 เครื่อง</strong></li>
+                                                <li><i class="fa fa-check text-success"></i> เพิ่มข้อมูลที่จะแสดงผลได้ <strong> 1 ข้อมูล</strong></li>
                                                 <li><i class="fa fa-check text-success"></i> เพิ่มไฟล์ HTML ได้ <strong> 1 ไฟล์</strong></li>
                                                 <li><i class="fa fa-check text-success"></i> ระยะเวลาใช้งาน <strong> 1 เดือน </strong></li>
                                                 <li><i class="fa fa-times text-danger"></i> ให้คำปรึกษา <strong> 8 ชั่วโมง(เวลาราชการ)</strong></li>
@@ -53,9 +52,8 @@
                                         <div class="">
                                             <div class="pricing_features">
                                             <ul class="list-unstyled text-left">
-                                                <li><i class="fa fa-check text-success"></i> ใช้ระบบ Client(android) ได้ <strong> 10 เครื่อง</strong></li>
-                                                <li><i class="fa fa-check text-success"></i> เพิ่มข้อมูลเครื่อง Client ได้ <strong> 10 เครื่อง</strong></li>
-                                                <li><i class="fa fa-check text-success"></i> สร้างกลุ่มของเครื่อง Client ได้ <strong> 5 กลุ่ม</strong></li>
+                                                <li><i class="fa fa-check text-success"></i> เพิ่มข้อมูลเครื่อง Client(android) ได้ <strong> 10 เครื่อง</strong></li>
+                                                <li><i class="fa fa-check text-success"></i> เพิ่มข้อมูลที่จะแสดงผลได้ <strong> 5 ข้อมูล</strong></li>
                                                 <li><i class="fa fa-check text-success"></i> เพิ่มไฟล์ HTML ได้ <strong> 5 ไฟล์</strong></li>
                                                 <li><i class="fa fa-check text-success"></i> ระยะเวลาใช้งาน <strong> ไม่จำกัด </strong></li>
                                                 <li><i class="fa fa-check text-success"></i> ให้คำปรึกษา <strong> 8 ชั่วโมง(เวลาราชการ)</strong></li>
@@ -86,9 +84,8 @@
                                         <div class="">
                                             <div class="pricing_features">
                                             <ul class="list-unstyled text-left">
-                                                <li><i class="fa fa-check text-success"></i> ใช้ระบบ Client(android) ได้ <strong> 50 เครื่อง</strong></li>
-                                                <li><i class="fa fa-check text-success"></i> เพิ่มข้อมูลเครื่อง Client ได้ <strong> 50 เครื่อง</strong></li>
-                                                <li><i class="fa fa-check text-success"></i> สร้างกลุ่มของเครื่อง Client ได้ <strong> 50 กลุ่ม</strong></li>
+                                                <li><i class="fa fa-check text-success"></i> เพิ่มข้อมูลเครื่อง Client(android) ได้ <strong> 50 เครื่อง</strong></li>
+                                                <li><i class="fa fa-check text-success"></i> เพิ่มข้อมูลที่จะแสดงผลได้ <strong> 50 ข้อมูล</strong></li>
                                                 <li><i class="fa fa-check text-success"></i> เพิ่มไฟล์ HTML ได้ <strong> 50 ไฟล์</strong></li>
                                                 <li><i class="fa fa-check text-success"></i> ระยะเวลาใช้งาน <strong> ไม่จำกัด </strong></li>
                                                 <li><i class="fa fa-check text-success"></i> ให้คำปรึกษา <strong> 8 ชั่วโมง(เวลาราชการ)</strong></li>
@@ -114,9 +111,8 @@
                                         <div class="">
                                             <div class="pricing_features">
                                             <ul class="list-unstyled text-left">
-                                                <li><i class="fa fa-check text-success"></i> ใช้ระบบ Client(android) ได้ <strong> 100 เครื่อง</strong></li>
-                                                <li><i class="fa fa-check text-success"></i> เพิ่มข้อมูลเครื่อง Client ได้ <strong> 100 เครื่อง</strong></li>
-                                                <li><i class="fa fa-check text-success"></i> สร้างกลุ่มของเครื่อง Client ได้ <strong> 100 กลุ่ม</strong></li>
+                                                <li><i class="fa fa-check text-success"></i> เพิ่มข้อมูลเครื่อง Client(android) ได้ <strong> 100 เครื่อง</strong></li>
+                                                <li><i class="fa fa-check text-success"></i> เพิ่มข้อมูลที่จะแสดงผลได้ <strong> 100 ข้อมูล</strong></li>
                                                 <li><i class="fa fa-check text-success"></i> เพิ่มไฟล์ HTML ได้ <strong> 100 ไฟล์</strong></li>
                                                 <li><i class="fa fa-check text-success"></i> ระยะเวลาใช้งาน <strong> ไม่จำกัด </strong></li>
                                                 <li><i class="fa fa-check text-success"></i> ให้คำปรึกษา <strong> 8 ชั่วโมง(เวลาราชการ)</strong></li>
