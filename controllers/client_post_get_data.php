@@ -12,7 +12,9 @@ if(!empty($_POST['id'])){
     $sql = "UPDATE devices SET device_status_id = 1 WHERE device_imei = '{$imei_number}'";
     $conn->query($sql);
 
-    $sql = "SELECT CONCAT('/', c.content_url, c.content_name, '.', c.content_extension) AS local_path, CONCAT(c.content_name, '.', c.content_extension) AS contentName
+    $sql = "SELECT CONCAT('/', c.content_url, c.content_name, '.', c.content_extension) AS localPath
+    , CONCAT(c.content_name, '.', c.content_extension) AS contentName
+    , a.device_group_id as deviceGroupId
     FROM devices a
     LEFT JOIN device_group b on b.device_group_id = a.device_group_id
     LEFT JOIN contents c on c.content_id = b.device_group_content_id
