@@ -44,7 +44,7 @@
                                             หมายเลข IMEI <span class="required">*</span>
                                         </label>
                                         <div class="col-md-9 col-sm-9 col-xs-12">
-                                            <input id="inpDeviceImei" class="form-control col-md-7 col-xs-12 allownumericwithoutdecimal" name="inpDeviceImei" maxlength="15" type="text">
+                                            <input id="inpDeviceImei" class="form-control col-md-7 col-xs-12" name="inpDeviceImei" maxlength="16" type="text">
                                         </div>
                                     </div>
 
