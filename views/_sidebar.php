@@ -10,7 +10,7 @@
                 </ul>
             </li> -->
             <li id="menu11"><a href="index.php"><i class="fa fa-tablet"></i>อุปกรณ์</a></li>
-            <li id="menu12"><a href="12.php"><i class="fa fa-th-list"></i>ข้อมูลที่แสดง</a></li>
+            <li id="menu12"><a href="12.php"><i class="fa fa-th-list"></i>กลุ่มอุปกรณ์</a></li>
             <li id="menu20"><a href="20.php"><i class="fa fa-html5"></i>ไฟล์ HTML(zip)</span></a></li>
             <li id="menu30"><a href="30.php"><i class="fa fa-download"></i>ดาวน์โหลด</span></a></li>
         </ul>

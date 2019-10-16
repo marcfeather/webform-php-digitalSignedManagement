@@ -10,7 +10,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>ข้อมูลที่แสดงผล</h2>
+                <h2>กลุ่มอุปกรณ์</h2>
 
                 <div class="nav navbar-right panel_toolbox">
                     <button id="btnAddDeviceGroup" type="button" class="btn btn-dark" style="width:100px; height:40px;">
@@ -26,13 +26,13 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">เพิ่มข้อมูลที่แสดงผล</h4>
+                                <h4 class="modal-title">เพิ่มกลุ่ม</h4>
                             </div>
                             <div class="modal-body">
                                 <form class="form-horizontal form-label-left">
                                     <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="inpGroupName">
-                                            ชื่อข้อมูล <span class="required">*</span>
+                                            ชื่อกลุ่ม <span class="required">*</span>
                                         </label>
                                         <div class="col-md-9 col-sm-9 col-xs-12">
                                             <input id="inpGroupName" class="form-control col-md-7 col-xs-12" name="inpGroupName" maxlength="50" type="text">
@@ -72,7 +72,7 @@
                     <thead>
                         <tr>
                             <th class="text-center" style="width: 5%">ลำดับ</th>
-                            <th class="text-left" style="width: 50%">ชื่อข้อมูล</th>
+                            <th class="text-left" style="width: 50%">ชื่อกลุ่ม</th>
                             <th class="text-left" style="width: 35%">ไฟล์ HTML(zip)</th>
                             <th class="text-center" style="width: 10%">แก้ไข</th>
                         </tr>
